@@ -1,0 +1,745 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C77B0C842226315A00917D82 /* ProcessingContext.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C1B2226315A00917D82 /* ProcessingContext.cpp */; };
+		C77B0C852226315A00917D82 /* Stylesheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C202226315A00917D82 /* Stylesheet.cpp */; };
+		C77B0C862226315A00917D82 /* SourceMapWriter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C232226315A00917D82 /* SourceMapWriter.cpp */; };
+		C77B0C872226315A00917D82 /* ParseException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C242226315A00917D82 /* ParseException.cpp */; };
+		C77B0C882226315A00917D82 /* RulesetStatement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C262226315A00917D82 /* RulesetStatement.cpp */; };
+		C77B0C892226315A00917D82 /* SelectorParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C2D2226315A00917D82 /* SelectorParser.cpp */; };
+		C77B0C8A2226315A00917D82 /* Comment.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C2E2226315A00917D82 /* Comment.cpp */; };
+		C77B0C8B2226315A00917D82 /* Tokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C2F2226315A00917D82 /* Tokenizer.cpp */; };
+		C77B0C8C2226315A00917D82 /* Declaration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C302226315A00917D82 /* Declaration.cpp */; };
+		C77B0C8D2226315A00917D82 /* AtRule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C312226315A00917D82 /* AtRule.cpp */; };
+		C77B0C8E2226315A00917D82 /* TokenList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C332226315A00917D82 /* TokenList.cpp */; };
+		C77B0C8F2226315A00917D82 /* MediaQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C342226315A00917D82 /* MediaQuery.cpp */; };
+		C77B0C902226315A00917D82 /* Ruleset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C352226315A00917D82 /* Ruleset.cpp */; };
+		C77B0C912226315A00917D82 /* StylesheetStatement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C3A2226315A00917D82 /* StylesheetStatement.cpp */; };
+		C77B0C922226315A00917D82 /* Parser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C3D2226315A00917D82 /* Parser.cpp */; };
+		C77B0C932226315A00917D82 /* Selector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C3E2226315A00917D82 /* Selector.cpp */; };
+		C77B0C942226315A00917D82 /* Writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C3F2226315A00917D82 /* Writer.cpp */; };
+		C77B0C952226315A00917D82 /* Token.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C402226315A00917D82 /* Token.cpp */; };
+		C77B0C962226315A00917D82 /* StylerMixin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C442226315A00917D82 /* StylerMixin.cpp */; };
+		C77B0C972226315A00917D82 /* StylerRuleset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C452226315A00917D82 /* StylerRuleset.cpp */; };
+		C77B0C982226315A00917D82 /* StylerMixinException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C462226315A00917D82 /* StylerMixinException.cpp */; };
+		C77B0C992226315A00917D82 /* StylerMixinArguments.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C482226315A00917D82 /* StylerMixinArguments.cpp */; };
+		C77B0C9A2226315A00917D82 /* StylerParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C4A2226315A00917D82 /* StylerParser.cpp */; };
+		C77B0C9B2226315A00917D82 /* StylerAtRule.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C4E2226315A00917D82 /* StylerAtRule.cpp */; };
+		C77B0C9C2226315A00917D82 /* StylerSelectorParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C4F2226315A00917D82 /* StylerSelectorParser.cpp */; };
+		C77B0C9D2226315A00917D82 /* StylerSelector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C512226315A00917D82 /* StylerSelector.cpp */; };
+		C77B0C9E2226315A00917D82 /* StylerStylesheet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C522226315A00917D82 /* StylerStylesheet.cpp */; };
+		C77B0C9F2226315A00917D82 /* StylerMixinCall.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C542226315A00917D82 /* StylerMixinCall.cpp */; };
+		C77B0CA02226315A00917D82 /* StylerClosure.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C562226315A00917D82 /* StylerClosure.cpp */; };
+		C77B0CA12226315A00917D82 /* StylerTokenizer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C592226315A00917D82 /* StylerTokenizer.cpp */; };
+		C77B0CA22226315A00917D82 /* StylerMediaQueryRuleset.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C5A2226315A00917D82 /* StylerMediaQueryRuleset.cpp */; };
+		C77B0CA32226315A00917D82 /* StylerDeclaration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C5C2226315A00917D82 /* StylerDeclaration.cpp */; };
+		C77B0CA42226315A00917D82 /* StylerMediaQuery.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C5E2226315A00917D82 /* StylerMediaQuery.cpp */; };
+		C77B0CA52226315A00917D82 /* StylerExtension.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C632226315A00917D82 /* StylerExtension.cpp */; };
+		C77B0CA62226315A00917D82 /* StylerException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C652226315A00917D82 /* StylerException.cpp */; };
+		C77B0CA72226315A00917D82 /* FunctionLibrary.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C692226315A00917D82 /* FunctionLibrary.cpp */; };
+		C77B0CA82226315A00917D82 /* StringFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C6A2226315A00917D82 /* StringFunctions.cpp */; };
+		C77B0CA92226315A00917D82 /* ColorFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C6C2226315A00917D82 /* ColorFunctions.cpp */; };
+		C77B0CAA2226315A00917D82 /* BooleanValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C6E2226315A00917D82 /* BooleanValue.cpp */; };
+		C77B0CAB2226315A00917D82 /* NumberFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C702226315A00917D82 /* NumberFunctions.cpp */; };
+		C77B0CAC2226315A00917D82 /* UrlFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C722226315A00917D82 /* UrlFunctions.cpp */; };
+		C77B0CAD2226315A00917D82 /* Color.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C782226315A00917D82 /* Color.cpp */; };
+		C77B0CAE2226315A00917D82 /* UrlValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C7A2226315A00917D82 /* UrlValue.cpp */; };
+		C77B0CAF2226315A00917D82 /* ValueProcessor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C7B2226315A00917D82 /* ValueProcessor.cpp */; };
+		C77B0CB02226315A00917D82 /* NumberValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C7C2226315A00917D82 /* NumberValue.cpp */; };
+		C77B0CB12226315A00917D82 /* Value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C7D2226315A00917D82 /* Value.cpp */; };
+		C77B0CB22226315A00917D82 /* UnitValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C7E2226315A00917D82 /* UnitValue.cpp */; };
+		C77B0CB32226315A00917D82 /* StringValue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C812226315A00917D82 /* StringValue.cpp */; };
+		C77B0CB42226315A00917D82 /* VariableMap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C77B0C832226315A00917D82 /* VariableMap.cpp */; };
+		C77B0CB62226319700917D82 /* Ruleset.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C1F2226315A00917D82 /* Ruleset.h */; };
+		C77B0CB72226319700917D82 /* SelectorParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C212226315A00917D82 /* SelectorParser.h */; };
+		C77B0CB82226319700917D82 /* Selector.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C222226315A00917D82 /* Selector.h */; };
+		C77B0CB92226319700917D82 /* AtRule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C252226315A00917D82 /* AtRule.h */; };
+		C77B0CBA2226319700917D82 /* TokenList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C272226315A00917D82 /* TokenList.h */; };
+		C77B0CBB2226319700917D82 /* Writable.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C282226315A00917D82 /* Writable.h */; };
+		C77B0CBC2226319700917D82 /* Parser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C292226315A00917D82 /* Parser.h */; };
+		C77B0CBD2226319700917D82 /* Declaration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C2A2226315A00917D82 /* Declaration.h */; };
+		C77B0CBE2226319700917D82 /* Comment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C2B2226315A00917D82 /* Comment.h */; };
+		C77B0CBF2226319700917D82 /* Tokenizer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C2C2226315A00917D82 /* Tokenizer.h */; };
+		C77B0CC02226319700917D82 /* SourceMapWriter.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C322226315A00917D82 /* SourceMapWriter.h */; };
+		C77B0CC12226319700917D82 /* Writer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C362226315A00917D82 /* Writer.h */; };
+		C77B0CC22226319700917D82 /* Token.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C372226315A00917D82 /* Token.h */; };
+		C77B0CC32226319700917D82 /* RulesetStatement.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C382226315A00917D82 /* RulesetStatement.h */; };
+		C77B0CC42226319700917D82 /* ParseException.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C392226315A00917D82 /* ParseException.h */; };
+		C77B0CC52226319700917D82 /* MediaQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C3B2226315A00917D82 /* MediaQuery.h */; };
+		C77B0CC62226319700917D82 /* StylesheetStatement.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C3C2226315A00917D82 /* StylesheetStatement.h */; };
+		C77B0CC72226319700917D82 /* Stylesheet.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C412226315A00917D82 /* Stylesheet.h */; };
+		C77B0CC82226319700917D82 /* StylerExtension.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C472226315A00917D82 /* StylerExtension.h */; };
+		C77B0CC92226319700917D82 /* StylerFunction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C492226315A00917D82 /* StylerFunction.h */; };
+		C77B0CCA2226319700917D82 /* StylerClosure.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C4B2226315A00917D82 /* StylerClosure.h */; };
+		C77B0CCB2226319700917D82 /* StylerStylesheet.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C4C2226315A00917D82 /* StylerStylesheet.h */; };
+		C77B0CCC2226319700917D82 /* StylerMediaQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C4D2226315A00917D82 /* StylerMediaQuery.h */; };
+		C77B0CCD2226319700917D82 /* StylerMixinException.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C502226315A00917D82 /* StylerMixinException.h */; };
+		C77B0CCE2226319700917D82 /* StylerSelectorParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C532226315A00917D82 /* StylerSelectorParser.h */; };
+		C77B0CCF2226319700917D82 /* StylerMixin.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C552226315A00917D82 /* StylerMixin.h */; };
+		C77B0CD02226319700917D82 /* StylerMediaQueryRuleset.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C572226315A00917D82 /* StylerMediaQueryRuleset.h */; };
+		C77B0CD12226319700917D82 /* StylerRuleset.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C582226315A00917D82 /* StylerRuleset.h */; };
+		C77B0CD22226319700917D82 /* StylerDeclaration.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C5B2226315A00917D82 /* StylerDeclaration.h */; };
+		C77B0CD32226319700917D82 /* StylerParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C5D2226315A00917D82 /* StylerParser.h */; };
+		C77B0CD42226319700917D82 /* StylerMixinCall.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C5F2226315A00917D82 /* StylerMixinCall.h */; };
+		C77B0CD52226319700917D82 /* StylerMixinArguments.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C602226315A00917D82 /* StylerMixinArguments.h */; };
+		C77B0CD62226319700917D82 /* StylerSelector.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C612226315A00917D82 /* StylerSelector.h */; };
+		C77B0CD72226319700917D82 /* StylerAtRule.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C622226315A00917D82 /* StylerAtRule.h */; };
+		C77B0CD82226319700917D82 /* StylerTokenizer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C642226315A00917D82 /* StylerTokenizer.h */; };
+		C77B0CD92226319700917D82 /* UrlFunctions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C672226315A00917D82 /* UrlFunctions.h */; };
+		C77B0CDA2226319700917D82 /* UnitValue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C682226315A00917D82 /* UnitValue.h */; };
+		C77B0CDB2226319700917D82 /* StringValue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C6B2226315A00917D82 /* StringValue.h */; };
+		C77B0CDC2226319700917D82 /* StringFunctions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C6D2226315A00917D82 /* StringFunctions.h */; };
+		C77B0CDD2226319700917D82 /* BooleanValue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C6F2226315A00917D82 /* BooleanValue.h */; };
+		C77B0CDE2226319700917D82 /* Color.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C712226315A00917D82 /* Color.h */; };
+		C77B0CDF2226319700917D82 /* ValueProcessor.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C732226315A00917D82 /* ValueProcessor.h */; };
+		C77B0CE02226319700917D82 /* Value.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C742226315A00917D82 /* Value.h */; };
+		C77B0CE12226319700917D82 /* ValueScope.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C752226315A00917D82 /* ValueScope.h */; };
+		C77B0CE22226319700917D82 /* FunctionLibrary.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C762226315A00917D82 /* FunctionLibrary.h */; };
+		C77B0CE32226319700917D82 /* NumberFunctions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C772226315A00917D82 /* NumberFunctions.h */; };
+		C77B0CE42226319700917D82 /* ValueException.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C792226315A00917D82 /* ValueException.h */; };
+		C77B0CE52226319700917D82 /* UrlValue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C7F2226315A00917D82 /* UrlValue.h */; };
+		C77B0CE62226319700917D82 /* NumberValue.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C802226315A00917D82 /* NumberValue.h */; };
+		C77B0CE72226319700917D82 /* ColorFunctions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C822226315A00917D82 /* ColorFunctions.h */; };
+		C77B0CE82226319700917D82 /* ProcessingContext.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C1C2226315A00917D82 /* ProcessingContext.h */; };
+		C77B0CE92226319700917D82 /* StylerException.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C1D2226315A00917D82 /* StylerException.h */; };
+		C77B0CEA2226319700917D82 /* VariableMap.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = C77B0C422226315A00917D82 /* VariableMap.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C77B0C0D2226307B00917D82 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				C77B0CB62226319700917D82 /* Ruleset.h in CopyFiles */,
+				C77B0CB72226319700917D82 /* SelectorParser.h in CopyFiles */,
+				C77B0CB82226319700917D82 /* Selector.h in CopyFiles */,
+				C77B0CB92226319700917D82 /* AtRule.h in CopyFiles */,
+				C77B0CBA2226319700917D82 /* TokenList.h in CopyFiles */,
+				C77B0CBB2226319700917D82 /* Writable.h in CopyFiles */,
+				C77B0CBC2226319700917D82 /* Parser.h in CopyFiles */,
+				C77B0CBD2226319700917D82 /* Declaration.h in CopyFiles */,
+				C77B0CBE2226319700917D82 /* Comment.h in CopyFiles */,
+				C77B0CBF2226319700917D82 /* Tokenizer.h in CopyFiles */,
+				C77B0CC02226319700917D82 /* SourceMapWriter.h in CopyFiles */,
+				C77B0CC12226319700917D82 /* Writer.h in CopyFiles */,
+				C77B0CC22226319700917D82 /* Token.h in CopyFiles */,
+				C77B0CC32226319700917D82 /* RulesetStatement.h in CopyFiles */,
+				C77B0CC42226319700917D82 /* ParseException.h in CopyFiles */,
+				C77B0CC52226319700917D82 /* MediaQuery.h in CopyFiles */,
+				C77B0CC62226319700917D82 /* StylesheetStatement.h in CopyFiles */,
+				C77B0CC72226319700917D82 /* Stylesheet.h in CopyFiles */,
+				C77B0CC82226319700917D82 /* StylerExtension.h in CopyFiles */,
+				C77B0CC92226319700917D82 /* StylerFunction.h in CopyFiles */,
+				C77B0CCA2226319700917D82 /* StylerClosure.h in CopyFiles */,
+				C77B0CCB2226319700917D82 /* StylerStylesheet.h in CopyFiles */,
+				C77B0CCC2226319700917D82 /* StylerMediaQuery.h in CopyFiles */,
+				C77B0CCD2226319700917D82 /* StylerMixinException.h in CopyFiles */,
+				C77B0CCE2226319700917D82 /* StylerSelectorParser.h in CopyFiles */,
+				C77B0CCF2226319700917D82 /* StylerMixin.h in CopyFiles */,
+				C77B0CD02226319700917D82 /* StylerMediaQueryRuleset.h in CopyFiles */,
+				C77B0CD12226319700917D82 /* StylerRuleset.h in CopyFiles */,
+				C77B0CD22226319700917D82 /* StylerDeclaration.h in CopyFiles */,
+				C77B0CD32226319700917D82 /* StylerParser.h in CopyFiles */,
+				C77B0CD42226319700917D82 /* StylerMixinCall.h in CopyFiles */,
+				C77B0CD52226319700917D82 /* StylerMixinArguments.h in CopyFiles */,
+				C77B0CD62226319700917D82 /* StylerSelector.h in CopyFiles */,
+				C77B0CD72226319700917D82 /* StylerAtRule.h in CopyFiles */,
+				C77B0CD82226319700917D82 /* StylerTokenizer.h in CopyFiles */,
+				C77B0CD92226319700917D82 /* UrlFunctions.h in CopyFiles */,
+				C77B0CDA2226319700917D82 /* UnitValue.h in CopyFiles */,
+				C77B0CDB2226319700917D82 /* StringValue.h in CopyFiles */,
+				C77B0CDC2226319700917D82 /* StringFunctions.h in CopyFiles */,
+				C77B0CDD2226319700917D82 /* BooleanValue.h in CopyFiles */,
+				C77B0CDE2226319700917D82 /* Color.h in CopyFiles */,
+				C77B0CDF2226319700917D82 /* ValueProcessor.h in CopyFiles */,
+				C77B0CE02226319700917D82 /* Value.h in CopyFiles */,
+				C77B0CE12226319700917D82 /* ValueScope.h in CopyFiles */,
+				C77B0CE22226319700917D82 /* FunctionLibrary.h in CopyFiles */,
+				C77B0CE32226319700917D82 /* NumberFunctions.h in CopyFiles */,
+				C77B0CE42226319700917D82 /* ValueException.h in CopyFiles */,
+				C77B0CE52226319700917D82 /* UrlValue.h in CopyFiles */,
+				C77B0CE62226319700917D82 /* NumberValue.h in CopyFiles */,
+				C77B0CE72226319700917D82 /* ColorFunctions.h in CopyFiles */,
+				C77B0CE82226319700917D82 /* ProcessingContext.h in CopyFiles */,
+				C77B0CE92226319700917D82 /* StylerException.h in CopyFiles */,
+				C77B0CEA2226319700917D82 /* VariableMap.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C77B0C0F2226307B00917D82 /* libStyle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libStyle.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C77B0C1B2226315A00917D82 /* ProcessingContext.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ProcessingContext.cpp; path = ../../../src/ProcessingContext.cpp; sourceTree = "<group>"; };
+		C77B0C1C2226315A00917D82 /* ProcessingContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProcessingContext.h; path = ../../../src/ProcessingContext.h; sourceTree = "<group>"; };
+		C77B0C1D2226315A00917D82 /* StylerException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StylerException.h; path = ../../../src/StylerException.h; sourceTree = "<group>"; };
+		C77B0C1F2226315A00917D82 /* Ruleset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ruleset.h; sourceTree = "<group>"; };
+		C77B0C202226315A00917D82 /* Stylesheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Stylesheet.cpp; sourceTree = "<group>"; };
+		C77B0C212226315A00917D82 /* SelectorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorParser.h; sourceTree = "<group>"; };
+		C77B0C222226315A00917D82 /* Selector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Selector.h; sourceTree = "<group>"; };
+		C77B0C232226315A00917D82 /* SourceMapWriter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SourceMapWriter.cpp; sourceTree = "<group>"; };
+		C77B0C242226315A00917D82 /* ParseException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ParseException.cpp; sourceTree = "<group>"; };
+		C77B0C252226315A00917D82 /* AtRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtRule.h; sourceTree = "<group>"; };
+		C77B0C262226315A00917D82 /* RulesetStatement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RulesetStatement.cpp; sourceTree = "<group>"; };
+		C77B0C272226315A00917D82 /* TokenList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokenList.h; sourceTree = "<group>"; };
+		C77B0C282226315A00917D82 /* Writable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Writable.h; sourceTree = "<group>"; };
+		C77B0C292226315A00917D82 /* Parser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Parser.h; sourceTree = "<group>"; };
+		C77B0C2A2226315A00917D82 /* Declaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Declaration.h; sourceTree = "<group>"; };
+		C77B0C2B2226315A00917D82 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		C77B0C2C2226315A00917D82 /* Tokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tokenizer.h; sourceTree = "<group>"; };
+		C77B0C2D2226315A00917D82 /* SelectorParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SelectorParser.cpp; sourceTree = "<group>"; };
+		C77B0C2E2226315A00917D82 /* Comment.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Comment.cpp; sourceTree = "<group>"; };
+		C77B0C2F2226315A00917D82 /* Tokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tokenizer.cpp; sourceTree = "<group>"; };
+		C77B0C302226315A00917D82 /* Declaration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Declaration.cpp; sourceTree = "<group>"; };
+		C77B0C312226315A00917D82 /* AtRule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AtRule.cpp; sourceTree = "<group>"; };
+		C77B0C322226315A00917D82 /* SourceMapWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SourceMapWriter.h; sourceTree = "<group>"; };
+		C77B0C332226315A00917D82 /* TokenList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TokenList.cpp; sourceTree = "<group>"; };
+		C77B0C342226315A00917D82 /* MediaQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MediaQuery.cpp; sourceTree = "<group>"; };
+		C77B0C352226315A00917D82 /* Ruleset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Ruleset.cpp; sourceTree = "<group>"; };
+		C77B0C362226315A00917D82 /* Writer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Writer.h; sourceTree = "<group>"; };
+		C77B0C372226315A00917D82 /* Token.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Token.h; sourceTree = "<group>"; };
+		C77B0C382226315A00917D82 /* RulesetStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RulesetStatement.h; sourceTree = "<group>"; };
+		C77B0C392226315A00917D82 /* ParseException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseException.h; sourceTree = "<group>"; };
+		C77B0C3A2226315A00917D82 /* StylesheetStatement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylesheetStatement.cpp; sourceTree = "<group>"; };
+		C77B0C3B2226315A00917D82 /* MediaQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaQuery.h; sourceTree = "<group>"; };
+		C77B0C3C2226315A00917D82 /* StylesheetStatement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylesheetStatement.h; sourceTree = "<group>"; };
+		C77B0C3D2226315A00917D82 /* Parser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Parser.cpp; sourceTree = "<group>"; };
+		C77B0C3E2226315A00917D82 /* Selector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Selector.cpp; sourceTree = "<group>"; };
+		C77B0C3F2226315A00917D82 /* Writer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Writer.cpp; sourceTree = "<group>"; };
+		C77B0C402226315A00917D82 /* Token.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Token.cpp; sourceTree = "<group>"; };
+		C77B0C412226315A00917D82 /* Stylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stylesheet.h; sourceTree = "<group>"; };
+		C77B0C422226315A00917D82 /* VariableMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VariableMap.h; path = ../../../src/VariableMap.h; sourceTree = "<group>"; };
+		C77B0C442226315A00917D82 /* StylerMixin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerMixin.cpp; sourceTree = "<group>"; };
+		C77B0C452226315A00917D82 /* StylerRuleset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerRuleset.cpp; sourceTree = "<group>"; };
+		C77B0C462226315A00917D82 /* StylerMixinException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerMixinException.cpp; sourceTree = "<group>"; };
+		C77B0C472226315A00917D82 /* StylerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerExtension.h; sourceTree = "<group>"; };
+		C77B0C482226315A00917D82 /* StylerMixinArguments.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerMixinArguments.cpp; sourceTree = "<group>"; };
+		C77B0C492226315A00917D82 /* StylerFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerFunction.h; sourceTree = "<group>"; };
+		C77B0C4A2226315A00917D82 /* StylerParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerParser.cpp; sourceTree = "<group>"; };
+		C77B0C4B2226315A00917D82 /* StylerClosure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerClosure.h; sourceTree = "<group>"; };
+		C77B0C4C2226315A00917D82 /* StylerStylesheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerStylesheet.h; sourceTree = "<group>"; };
+		C77B0C4D2226315A00917D82 /* StylerMediaQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerMediaQuery.h; sourceTree = "<group>"; };
+		C77B0C4E2226315A00917D82 /* StylerAtRule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerAtRule.cpp; sourceTree = "<group>"; };
+		C77B0C4F2226315A00917D82 /* StylerSelectorParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerSelectorParser.cpp; sourceTree = "<group>"; };
+		C77B0C502226315A00917D82 /* StylerMixinException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerMixinException.h; sourceTree = "<group>"; };
+		C77B0C512226315A00917D82 /* StylerSelector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerSelector.cpp; sourceTree = "<group>"; };
+		C77B0C522226315A00917D82 /* StylerStylesheet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerStylesheet.cpp; sourceTree = "<group>"; };
+		C77B0C532226315A00917D82 /* StylerSelectorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerSelectorParser.h; sourceTree = "<group>"; };
+		C77B0C542226315A00917D82 /* StylerMixinCall.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerMixinCall.cpp; sourceTree = "<group>"; };
+		C77B0C552226315A00917D82 /* StylerMixin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerMixin.h; sourceTree = "<group>"; };
+		C77B0C562226315A00917D82 /* StylerClosure.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerClosure.cpp; sourceTree = "<group>"; };
+		C77B0C572226315A00917D82 /* StylerMediaQueryRuleset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerMediaQueryRuleset.h; sourceTree = "<group>"; };
+		C77B0C582226315A00917D82 /* StylerRuleset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerRuleset.h; sourceTree = "<group>"; };
+		C77B0C592226315A00917D82 /* StylerTokenizer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerTokenizer.cpp; sourceTree = "<group>"; };
+		C77B0C5A2226315A00917D82 /* StylerMediaQueryRuleset.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerMediaQueryRuleset.cpp; sourceTree = "<group>"; };
+		C77B0C5B2226315A00917D82 /* StylerDeclaration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerDeclaration.h; sourceTree = "<group>"; };
+		C77B0C5C2226315A00917D82 /* StylerDeclaration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerDeclaration.cpp; sourceTree = "<group>"; };
+		C77B0C5D2226315A00917D82 /* StylerParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerParser.h; sourceTree = "<group>"; };
+		C77B0C5E2226315A00917D82 /* StylerMediaQuery.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerMediaQuery.cpp; sourceTree = "<group>"; };
+		C77B0C5F2226315A00917D82 /* StylerMixinCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerMixinCall.h; sourceTree = "<group>"; };
+		C77B0C602226315A00917D82 /* StylerMixinArguments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerMixinArguments.h; sourceTree = "<group>"; };
+		C77B0C612226315A00917D82 /* StylerSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerSelector.h; sourceTree = "<group>"; };
+		C77B0C622226315A00917D82 /* StylerAtRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerAtRule.h; sourceTree = "<group>"; };
+		C77B0C632226315A00917D82 /* StylerExtension.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StylerExtension.cpp; sourceTree = "<group>"; };
+		C77B0C642226315A00917D82 /* StylerTokenizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StylerTokenizer.h; sourceTree = "<group>"; };
+		C77B0C652226315A00917D82 /* StylerException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = StylerException.cpp; path = ../../../src/StylerException.cpp; sourceTree = "<group>"; };
+		C77B0C672226315A00917D82 /* UrlFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlFunctions.h; sourceTree = "<group>"; };
+		C77B0C682226315A00917D82 /* UnitValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitValue.h; sourceTree = "<group>"; };
+		C77B0C692226315A00917D82 /* FunctionLibrary.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FunctionLibrary.cpp; sourceTree = "<group>"; };
+		C77B0C6A2226315A00917D82 /* StringFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringFunctions.cpp; sourceTree = "<group>"; };
+		C77B0C6B2226315A00917D82 /* StringValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringValue.h; sourceTree = "<group>"; };
+		C77B0C6C2226315A00917D82 /* ColorFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ColorFunctions.cpp; sourceTree = "<group>"; };
+		C77B0C6D2226315A00917D82 /* StringFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringFunctions.h; sourceTree = "<group>"; };
+		C77B0C6E2226315A00917D82 /* BooleanValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BooleanValue.cpp; sourceTree = "<group>"; };
+		C77B0C6F2226315A00917D82 /* BooleanValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanValue.h; sourceTree = "<group>"; };
+		C77B0C702226315A00917D82 /* NumberFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberFunctions.cpp; sourceTree = "<group>"; };
+		C77B0C712226315A00917D82 /* Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Color.h; sourceTree = "<group>"; };
+		C77B0C722226315A00917D82 /* UrlFunctions.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UrlFunctions.cpp; sourceTree = "<group>"; };
+		C77B0C732226315A00917D82 /* ValueProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueProcessor.h; sourceTree = "<group>"; };
+		C77B0C742226315A00917D82 /* Value.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Value.h; sourceTree = "<group>"; };
+		C77B0C752226315A00917D82 /* ValueScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueScope.h; sourceTree = "<group>"; };
+		C77B0C762226315A00917D82 /* FunctionLibrary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionLibrary.h; sourceTree = "<group>"; };
+		C77B0C772226315A00917D82 /* NumberFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberFunctions.h; sourceTree = "<group>"; };
+		C77B0C782226315A00917D82 /* Color.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Color.cpp; sourceTree = "<group>"; };
+		C77B0C792226315A00917D82 /* ValueException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValueException.h; sourceTree = "<group>"; };
+		C77B0C7A2226315A00917D82 /* UrlValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UrlValue.cpp; sourceTree = "<group>"; };
+		C77B0C7B2226315A00917D82 /* ValueProcessor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ValueProcessor.cpp; sourceTree = "<group>"; };
+		C77B0C7C2226315A00917D82 /* NumberValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NumberValue.cpp; sourceTree = "<group>"; };
+		C77B0C7D2226315A00917D82 /* Value.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Value.cpp; sourceTree = "<group>"; };
+		C77B0C7E2226315A00917D82 /* UnitValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UnitValue.cpp; sourceTree = "<group>"; };
+		C77B0C7F2226315A00917D82 /* UrlValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UrlValue.h; sourceTree = "<group>"; };
+		C77B0C802226315A00917D82 /* NumberValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberValue.h; sourceTree = "<group>"; };
+		C77B0C812226315A00917D82 /* StringValue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringValue.cpp; sourceTree = "<group>"; };
+		C77B0C822226315A00917D82 /* ColorFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorFunctions.h; sourceTree = "<group>"; };
+		C77B0C832226315A00917D82 /* VariableMap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = VariableMap.cpp; path = ../../../src/VariableMap.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C77B0C0C2226307B00917D82 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C77B0C062226307B00917D82 = {
+			isa = PBXGroup;
+			children = (
+				C77B0C112226307B00917D82 /* Style */,
+				C77B0C102226307B00917D82 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C77B0C102226307B00917D82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C77B0C0F2226307B00917D82 /* libStyle.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C77B0C112226307B00917D82 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				C77B0C1E2226315A00917D82 /* css */,
+				C77B0C432226315A00917D82 /* dls */,
+				C77B0C662226315A00917D82 /* value */,
+				C77B0C1B2226315A00917D82 /* ProcessingContext.cpp */,
+				C77B0C652226315A00917D82 /* StylerException.cpp */,
+				C77B0C832226315A00917D82 /* VariableMap.cpp */,
+				C77B0C1C2226315A00917D82 /* ProcessingContext.h */,
+				C77B0C1D2226315A00917D82 /* StylerException.h */,
+				C77B0C422226315A00917D82 /* VariableMap.h */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		C77B0C1E2226315A00917D82 /* css */ = {
+			isa = PBXGroup;
+			children = (
+				C77B0C1F2226315A00917D82 /* Ruleset.h */,
+				C77B0C202226315A00917D82 /* Stylesheet.cpp */,
+				C77B0C212226315A00917D82 /* SelectorParser.h */,
+				C77B0C222226315A00917D82 /* Selector.h */,
+				C77B0C232226315A00917D82 /* SourceMapWriter.cpp */,
+				C77B0C242226315A00917D82 /* ParseException.cpp */,
+				C77B0C252226315A00917D82 /* AtRule.h */,
+				C77B0C262226315A00917D82 /* RulesetStatement.cpp */,
+				C77B0C272226315A00917D82 /* TokenList.h */,
+				C77B0C282226315A00917D82 /* Writable.h */,
+				C77B0C292226315A00917D82 /* Parser.h */,
+				C77B0C2A2226315A00917D82 /* Declaration.h */,
+				C77B0C2B2226315A00917D82 /* Comment.h */,
+				C77B0C2C2226315A00917D82 /* Tokenizer.h */,
+				C77B0C2D2226315A00917D82 /* SelectorParser.cpp */,
+				C77B0C2E2226315A00917D82 /* Comment.cpp */,
+				C77B0C2F2226315A00917D82 /* Tokenizer.cpp */,
+				C77B0C302226315A00917D82 /* Declaration.cpp */,
+				C77B0C312226315A00917D82 /* AtRule.cpp */,
+				C77B0C322226315A00917D82 /* SourceMapWriter.h */,
+				C77B0C332226315A00917D82 /* TokenList.cpp */,
+				C77B0C342226315A00917D82 /* MediaQuery.cpp */,
+				C77B0C352226315A00917D82 /* Ruleset.cpp */,
+				C77B0C362226315A00917D82 /* Writer.h */,
+				C77B0C372226315A00917D82 /* Token.h */,
+				C77B0C382226315A00917D82 /* RulesetStatement.h */,
+				C77B0C392226315A00917D82 /* ParseException.h */,
+				C77B0C3A2226315A00917D82 /* StylesheetStatement.cpp */,
+				C77B0C3B2226315A00917D82 /* MediaQuery.h */,
+				C77B0C3C2226315A00917D82 /* StylesheetStatement.h */,
+				C77B0C3D2226315A00917D82 /* Parser.cpp */,
+				C77B0C3E2226315A00917D82 /* Selector.cpp */,
+				C77B0C3F2226315A00917D82 /* Writer.cpp */,
+				C77B0C402226315A00917D82 /* Token.cpp */,
+				C77B0C412226315A00917D82 /* Stylesheet.h */,
+			);
+			name = css;
+			path = ../../../src/css;
+			sourceTree = "<group>";
+		};
+		C77B0C432226315A00917D82 /* dls */ = {
+			isa = PBXGroup;
+			children = (
+				C77B0C442226315A00917D82 /* StylerMixin.cpp */,
+				C77B0C452226315A00917D82 /* StylerRuleset.cpp */,
+				C77B0C462226315A00917D82 /* StylerMixinException.cpp */,
+				C77B0C472226315A00917D82 /* StylerExtension.h */,
+				C77B0C482226315A00917D82 /* StylerMixinArguments.cpp */,
+				C77B0C492226315A00917D82 /* StylerFunction.h */,
+				C77B0C4A2226315A00917D82 /* StylerParser.cpp */,
+				C77B0C4B2226315A00917D82 /* StylerClosure.h */,
+				C77B0C4C2226315A00917D82 /* StylerStylesheet.h */,
+				C77B0C4D2226315A00917D82 /* StylerMediaQuery.h */,
+				C77B0C4E2226315A00917D82 /* StylerAtRule.cpp */,
+				C77B0C4F2226315A00917D82 /* StylerSelectorParser.cpp */,
+				C77B0C502226315A00917D82 /* StylerMixinException.h */,
+				C77B0C512226315A00917D82 /* StylerSelector.cpp */,
+				C77B0C522226315A00917D82 /* StylerStylesheet.cpp */,
+				C77B0C532226315A00917D82 /* StylerSelectorParser.h */,
+				C77B0C542226315A00917D82 /* StylerMixinCall.cpp */,
+				C77B0C552226315A00917D82 /* StylerMixin.h */,
+				C77B0C562226315A00917D82 /* StylerClosure.cpp */,
+				C77B0C572226315A00917D82 /* StylerMediaQueryRuleset.h */,
+				C77B0C582226315A00917D82 /* StylerRuleset.h */,
+				C77B0C592226315A00917D82 /* StylerTokenizer.cpp */,
+				C77B0C5A2226315A00917D82 /* StylerMediaQueryRuleset.cpp */,
+				C77B0C5B2226315A00917D82 /* StylerDeclaration.h */,
+				C77B0C5C2226315A00917D82 /* StylerDeclaration.cpp */,
+				C77B0C5D2226315A00917D82 /* StylerParser.h */,
+				C77B0C5E2226315A00917D82 /* StylerMediaQuery.cpp */,
+				C77B0C5F2226315A00917D82 /* StylerMixinCall.h */,
+				C77B0C602226315A00917D82 /* StylerMixinArguments.h */,
+				C77B0C612226315A00917D82 /* StylerSelector.h */,
+				C77B0C622226315A00917D82 /* StylerAtRule.h */,
+				C77B0C632226315A00917D82 /* StylerExtension.cpp */,
+				C77B0C642226315A00917D82 /* StylerTokenizer.h */,
+			);
+			name = dls;
+			path = ../../../src/dls;
+			sourceTree = "<group>";
+		};
+		C77B0C662226315A00917D82 /* value */ = {
+			isa = PBXGroup;
+			children = (
+				C77B0C672226315A00917D82 /* UrlFunctions.h */,
+				C77B0C682226315A00917D82 /* UnitValue.h */,
+				C77B0C692226315A00917D82 /* FunctionLibrary.cpp */,
+				C77B0C6A2226315A00917D82 /* StringFunctions.cpp */,
+				C77B0C6B2226315A00917D82 /* StringValue.h */,
+				C77B0C6C2226315A00917D82 /* ColorFunctions.cpp */,
+				C77B0C6D2226315A00917D82 /* StringFunctions.h */,
+				C77B0C6E2226315A00917D82 /* BooleanValue.cpp */,
+				C77B0C6F2226315A00917D82 /* BooleanValue.h */,
+				C77B0C702226315A00917D82 /* NumberFunctions.cpp */,
+				C77B0C712226315A00917D82 /* Color.h */,
+				C77B0C722226315A00917D82 /* UrlFunctions.cpp */,
+				C77B0C732226315A00917D82 /* ValueProcessor.h */,
+				C77B0C742226315A00917D82 /* Value.h */,
+				C77B0C752226315A00917D82 /* ValueScope.h */,
+				C77B0C762226315A00917D82 /* FunctionLibrary.h */,
+				C77B0C772226315A00917D82 /* NumberFunctions.h */,
+				C77B0C782226315A00917D82 /* Color.cpp */,
+				C77B0C792226315A00917D82 /* ValueException.h */,
+				C77B0C7A2226315A00917D82 /* UrlValue.cpp */,
+				C77B0C7B2226315A00917D82 /* ValueProcessor.cpp */,
+				C77B0C7C2226315A00917D82 /* NumberValue.cpp */,
+				C77B0C7D2226315A00917D82 /* Value.cpp */,
+				C77B0C7E2226315A00917D82 /* UnitValue.cpp */,
+				C77B0C7F2226315A00917D82 /* UrlValue.h */,
+				C77B0C802226315A00917D82 /* NumberValue.h */,
+				C77B0C812226315A00917D82 /* StringValue.cpp */,
+				C77B0C822226315A00917D82 /* ColorFunctions.h */,
+			);
+			name = value;
+			path = ../../../src/value;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C77B0C0E2226307B00917D82 /* Style */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C77B0C182226307B00917D82 /* Build configuration list for PBXNativeTarget "Style" */;
+			buildPhases = (
+				C77B0C0B2226307B00917D82 /* Sources */,
+				C77B0C0C2226307B00917D82 /* Frameworks */,
+				C77B0C0D2226307B00917D82 /* CopyFiles */,
+				C77B0CB52226316C00917D82 /* Build Static Library */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Style;
+			productName = Style;
+			productReference = C77B0C0F2226307B00917D82 /* libStyle.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C77B0C072226307B00917D82 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Logaritm;
+				TargetAttributes = {
+					C77B0C0E2226307B00917D82 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = C77B0C0A2226307B00917D82 /* Build configuration list for PBXProject "Style" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = C77B0C062226307B00917D82;
+			productRefGroup = C77B0C102226307B00917D82 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C77B0C0E2226307B00917D82 /* Style */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C77B0CB52226316C00917D82 /* Build Static Library */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Static Library";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "##########################################\n#\n# c.f. https://stackoverflow.com/questions/3520977/build-fat-static-library-device-simulator-using-xcode-and-sdk-4\n#\n# Version 2.82\n#\n# Latest Change:\n# - MORE tweaks to get the iOS 10+ and 9- working\n# - Support iOS 10+\n# - Corrected typo for iOS 1-10+ (thanks @stuikomma)\n# \n# Purpose:\n#   Automatically create a Universal static library for iPhone + iPad + iPhone Simulator from within XCode\n#\n# Author: Adam Martin - http://twitter.com/redglassesapps\n# Based on: original script from Eonil (main changes: Eonil's script WILL NOT WORK in Xcode GUI - it WILL CRASH YOUR COMPUTER)\n#\n\nset -e\nset -o pipefail\n\n#################[ Tests: helps workaround any future bugs in Xcode ]########\n#\nDEBUG_THIS_SCRIPT=\"false\"\n\nif [ $DEBUG_THIS_SCRIPT = \"true\" ]\nthen\necho \"########### TESTS #############\"\necho \"Use the following variables when debugging this script; note that they may change on recursions\"\necho \"BUILD_DIR = $BUILD_DIR\"\necho \"BUILD_ROOT = $BUILD_ROOT\"\necho \"CONFIGURATION_BUILD_DIR = $CONFIGURATION_BUILD_DIR\"\necho \"BUILT_PRODUCTS_DIR = $BUILT_PRODUCTS_DIR\"\necho \"CONFIGURATION_TEMP_DIR = $CONFIGURATION_TEMP_DIR\"\necho \"TARGET_BUILD_DIR = $TARGET_BUILD_DIR\"\nfi\n\n#####################[ part 1 ]##################\n# First, work out the BASESDK version number (NB: Apple ought to report this, but they hide it)\n#    (incidental: searching for substrings in sh is a nightmare! Sob)\n\nSDK_VERSION=$(echo ${SDK_NAME} | grep -o '\\d\\{1,2\\}\\.\\d\\{1,2\\}$')\n\n# Next, work out if we're in SIM or DEVICE\n\nif [ ${PLATFORM_NAME} = \"iphonesimulator\" ]\nthen\nOTHER_SDK_TO_BUILD=iphoneos${SDK_VERSION}\nelse\nOTHER_SDK_TO_BUILD=iphonesimulator${SDK_VERSION}\nfi\n\necho \"XCode has selected SDK: ${PLATFORM_NAME} with version: ${SDK_VERSION} (although back-targetting: ${IPHONEOS_DEPLOYMENT_TARGET})\"\necho \"...therefore, OTHER_SDK_TO_BUILD = ${OTHER_SDK_TO_BUILD}\"\n#\n#####################[ end of part 1 ]##################\n\n#####################[ part 2 ]##################\n#\n# IF this is the original invocation, invoke WHATEVER other builds are required\n#\n# Xcode is already building ONE target...\n#\n# ...but this is a LIBRARY, so Apple is wrong to set it to build just one.\n# ...we need to build ALL targets\n# ...we MUST NOT re-build the target that is ALREADY being built: Xcode WILL CRASH YOUR COMPUTER if you try this (infinite recursion!)\n#\n#\n# So: build ONLY the missing platforms/configurations.\n\nif [ \"true\" == ${ALREADYINVOKED:-false} ]\nthen\necho \"RECURSION: I am NOT the root invocation, so I'm NOT going to recurse\"\nelse\n# CRITICAL:\n# Prevent infinite recursion (Xcode sucks)\nexport ALREADYINVOKED=\"true\"\n\necho \"RECURSION: I am the root ... recursing all missing build targets NOW...\"\necho \"RECURSION: ...about to invoke: xcodebuild -configuration \\\"${CONFIGURATION}\\\" -project \\\"${PROJECT_NAME}.xcodeproj\\\" -target \\\"${TARGET_NAME}\\\" -sdk \\\"${OTHER_SDK_TO_BUILD}\\\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO\" BUILD_DIR=\\\"${BUILD_DIR}\\\" BUILD_ROOT=\\\"${BUILD_ROOT}\\\" SYMROOT=\\\"${SYMROOT}\\\"\n\nxcodebuild -configuration \"${CONFIGURATION}\" -project \"${PROJECT_NAME}.xcodeproj\" -target \"${TARGET_NAME}\" -sdk \"${OTHER_SDK_TO_BUILD}\" ${ACTION} RUN_CLANG_STATIC_ANALYZER=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" SYMROOT=\"${SYMROOT}\"\n\nACTION=\"build\"\n\n#Merge all platform binaries as a fat binary for each configurations.\n\n# Calculate where the (multiple) built files are coming from:\nCURRENTCONFIG_DEVICE_DIR=${SYMROOT}/${CONFIGURATION}-iphoneos\nCURRENTCONFIG_SIMULATOR_DIR=${SYMROOT}/${CONFIGURATION}-iphonesimulator\n\necho \"Taking device build from: ${CURRENTCONFIG_DEVICE_DIR}\"\necho \"Taking simulator build from: ${CURRENTCONFIG_SIMULATOR_DIR}\"\n\nCREATING_UNIVERSAL_DIR=${SYMROOT}/${CONFIGURATION}-universal\necho \"...I will output a universal build to: ${CREATING_UNIVERSAL_DIR}\"\n\n# ... remove the products of previous runs of this script\n#      NB: this directory is ONLY created by this script - it should be safe to delete!\n\nrm -rf \"${CREATING_UNIVERSAL_DIR}\"\nmkdir \"${CREATING_UNIVERSAL_DIR}\"\n\n#\necho \"lipo: for current configuration (${CONFIGURATION}) creating output file: ${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\"\nxcrun -sdk iphoneos lipo -create -output \"${CREATING_UNIVERSAL_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_DEVICE_DIR}/${EXECUTABLE_NAME}\" \"${CURRENTCONFIG_SIMULATOR_DIR}/${EXECUTABLE_NAME}\"\n\n#########\n#\n# Added: StackOverflow suggestion to also copy \"include\" files\n#    (untested, but should work OK)\n#\necho \"Fetching headers from ${PUBLIC_HEADERS_FOLDER_PATH}\"\necho \"  (if you embed your library project in another project, you will need to add\"\necho \"   a \"User Search Headers\" build setting of: (NB INCLUDE THE DOUBLE QUOTES BELOW!)\"\necho '        \"$(TARGET_BUILD_DIR)/usr/local/include/\"'\nif [ -d \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\" ]\nthen\nmkdir -p \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\n# * needs to be outside the double quotes?\ncp -r \"${CURRENTCONFIG_DEVICE_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"* \"${CREATING_UNIVERSAL_DIR}${PUBLIC_HEADERS_FOLDER_PATH}\"\nfi\nfi\n\nopen \"${CREATING_UNIVERSAL_DIR}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C77B0C0B2226307B00917D82 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C77B0C862226315A00917D82 /* SourceMapWriter.cpp in Sources */,
+				C77B0CB02226315A00917D82 /* NumberValue.cpp in Sources */,
+				C77B0C9B2226315A00917D82 /* StylerAtRule.cpp in Sources */,
+				C77B0CB22226315A00917D82 /* UnitValue.cpp in Sources */,
+				C77B0C8B2226315A00917D82 /* Tokenizer.cpp in Sources */,
+				C77B0C902226315A00917D82 /* Ruleset.cpp in Sources */,
+				C77B0CA12226315A00917D82 /* StylerTokenizer.cpp in Sources */,
+				C77B0C9E2226315A00917D82 /* StylerStylesheet.cpp in Sources */,
+				C77B0C882226315A00917D82 /* RulesetStatement.cpp in Sources */,
+				C77B0CAD2226315A00917D82 /* Color.cpp in Sources */,
+				C77B0CAF2226315A00917D82 /* ValueProcessor.cpp in Sources */,
+				C77B0C872226315A00917D82 /* ParseException.cpp in Sources */,
+				C77B0CAE2226315A00917D82 /* UrlValue.cpp in Sources */,
+				C77B0C9C2226315A00917D82 /* StylerSelectorParser.cpp in Sources */,
+				C77B0C8C2226315A00917D82 /* Declaration.cpp in Sources */,
+				C77B0CB42226315A00917D82 /* VariableMap.cpp in Sources */,
+				C77B0CA22226315A00917D82 /* StylerMediaQueryRuleset.cpp in Sources */,
+				C77B0C8F2226315A00917D82 /* MediaQuery.cpp in Sources */,
+				C77B0C982226315A00917D82 /* StylerMixinException.cpp in Sources */,
+				C77B0CA02226315A00917D82 /* StylerClosure.cpp in Sources */,
+				C77B0CAB2226315A00917D82 /* NumberFunctions.cpp in Sources */,
+				C77B0C912226315A00917D82 /* StylesheetStatement.cpp in Sources */,
+				C77B0CA92226315A00917D82 /* ColorFunctions.cpp in Sources */,
+				C77B0CA32226315A00917D82 /* StylerDeclaration.cpp in Sources */,
+				C77B0C842226315A00917D82 /* ProcessingContext.cpp in Sources */,
+				C77B0CB12226315A00917D82 /* Value.cpp in Sources */,
+				C77B0C972226315A00917D82 /* StylerRuleset.cpp in Sources */,
+				C77B0CAC2226315A00917D82 /* UrlFunctions.cpp in Sources */,
+				C77B0CA52226315A00917D82 /* StylerExtension.cpp in Sources */,
+				C77B0C8A2226315A00917D82 /* Comment.cpp in Sources */,
+				C77B0CA82226315A00917D82 /* StringFunctions.cpp in Sources */,
+				C77B0C852226315A00917D82 /* Stylesheet.cpp in Sources */,
+				C77B0C8D2226315A00917D82 /* AtRule.cpp in Sources */,
+				C77B0C942226315A00917D82 /* Writer.cpp in Sources */,
+				C77B0CA72226315A00917D82 /* FunctionLibrary.cpp in Sources */,
+				C77B0C892226315A00917D82 /* SelectorParser.cpp in Sources */,
+				C77B0C922226315A00917D82 /* Parser.cpp in Sources */,
+				C77B0CB32226315A00917D82 /* StringValue.cpp in Sources */,
+				C77B0C952226315A00917D82 /* Token.cpp in Sources */,
+				C77B0C932226315A00917D82 /* Selector.cpp in Sources */,
+				C77B0C9D2226315A00917D82 /* StylerSelector.cpp in Sources */,
+				C77B0CAA2226315A00917D82 /* BooleanValue.cpp in Sources */,
+				C77B0C9A2226315A00917D82 /* StylerParser.cpp in Sources */,
+				C77B0CA42226315A00917D82 /* StylerMediaQuery.cpp in Sources */,
+				C77B0C9F2226315A00917D82 /* StylerMixinCall.cpp in Sources */,
+				C77B0C992226315A00917D82 /* StylerMixinArguments.cpp in Sources */,
+				C77B0CA62226315A00917D82 /* StylerException.cpp in Sources */,
+				C77B0C962226315A00917D82 /* StylerMixin.cpp in Sources */,
+				C77B0C8E2226315A00917D82 /* TokenList.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		C77B0C162226307B00917D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C77B0C172226307B00917D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C77B0C192226307B00917D82 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QFKX2YRS9;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C77B0C1A2226307B00917D82 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QFKX2YRS9;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C77B0C0A2226307B00917D82 /* Build configuration list for PBXProject "Style" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C77B0C162226307B00917D82 /* Debug */,
+				C77B0C172226307B00917D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C77B0C182226307B00917D82 /* Build configuration list for PBXNativeTarget "Style" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C77B0C192226307B00917D82 /* Debug */,
+				C77B0C1A2226307B00917D82 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C77B0C072226307B00917D82 /* Project object */;
+}
