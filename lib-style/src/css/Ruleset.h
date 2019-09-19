@@ -5,17 +5,17 @@
 #include "Selector.h"
 #include "Stylesheet.h"
 #include "StylesheetStatement.h"
-
 #include "Token.h"
 #include "TokenList.h"
-
 #include "Writer.h"
 
-class RulesetStatement;
+namespace Press {
 
+class RulesetStatement;
 class Declaration;
 
 class Ruleset : public StylesheetStatement {
+
 private:
 	std::list<RulesetStatement *> statements;
 	std::list<Declaration *> declarations;
@@ -45,7 +45,9 @@ public:
 	virtual void write(Writer &writer) const;
 };
 
+}
+
 #include "Declaration.h"
 #include "RulesetStatement.h"
 
-#endif  // __Ruleset_h__
+#endif

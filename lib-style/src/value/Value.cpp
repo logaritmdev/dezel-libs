@@ -1,6 +1,8 @@
 #include "Value.h"
 #include "BooleanValue.h"
 
+namespace Press {
+
 Value::Value() {
 }
 
@@ -43,7 +45,7 @@ bool Value::operator>=(const Value &v) const {
 }
 
 
-const char *Value::typeToString(const Type &t) {
+const char* Value::typeToString(const Type &t) {
 	switch (t) {
 		case NUMBER:
 			return "Number";
@@ -86,4 +88,6 @@ Value::Type Value::codeToType(const char code) {
 		default:
 			return NUMBER;
 	}
+}
+
 }

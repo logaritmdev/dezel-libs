@@ -1,5 +1,7 @@
 #include "AtRule.h"
 
+namespace Press {
+
 AtRule::AtRule(const Token &keyword) {
 	this->keyword = keyword;
 }
@@ -36,4 +38,6 @@ void AtRule::process(Stylesheet &s, void *context) const {
 
 void AtRule::write(Writer &writer) const {
 	writer.writeAtRule(keyword, rule);
+}
+
 }

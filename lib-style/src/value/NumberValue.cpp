@@ -1,6 +1,8 @@
 #include "NumberValue.h"
 #include "FunctionLibrary.h"
 
+namespace Press {
+
 NumberValue::NumberValue(const Token &token) {
 	tokens.push_back(token);
 
@@ -110,14 +112,14 @@ double NumberValue::convert(const std::string &unit) const {
 			*this->getTokens());
 }
 
-Value *NumberValue::operator+(const Value &v) const {
-	const NumberValue *n;
-	const StringValue *s;
-	NumberValue *nret;
-	StringValue *sret;
+Value* NumberValue::operator+(const Value &v) const {
+	const NumberValue* n;
+	const StringValue* s;
+	NumberValue* nret;
+	StringValue* sret;
 
 	if (isNumber(v)) {
-		n = static_cast<const NumberValue *>(&v);
+		n = static_cast<const NumberValue* >(&v);
 		nret = new NumberValue(getValue());
 		if (type == NUMBER)
 			nret->setType(*n);
@@ -133,7 +135,7 @@ Value *NumberValue::operator+(const Value &v) const {
 		return (*static_cast<const Color *>(&v)) + (*this);
 
 	} else if (v.type == STRING) {
-		s = static_cast<const StringValue *>(&v);
+		s = static_cast<const StringValue* >(&v);
 		sret = new StringValue(*this, s->getQuotes());
 		sret->append(v);
 		return sret;
@@ -143,12 +145,12 @@ Value *NumberValue::operator+(const Value &v) const {
 	}
 }
 
-Value *NumberValue::operator-(const Value &v) const {
-	const NumberValue *n;
-	NumberValue *ret;
+Value* NumberValue::operator-(const Value &v) const {
+	const NumberValue* n;
+	NumberValue* ret;
 
 	if (isNumber(v)) {
-		n = static_cast<const NumberValue *>(&v);
+		n = static_cast<const NumberValue* >(&v);
 		ret = new NumberValue(getValue());
 
 		if (type == NUMBER)
@@ -168,12 +170,12 @@ Value *NumberValue::operator-(const Value &v) const {
 			*this->getTokens());
 }
 
-Value *NumberValue::operator*(const Value &v) const {
-	const NumberValue *n;
-	NumberValue *ret;
+Value* NumberValue::operator*(const Value &v) const {
+	const NumberValue* n;
+	NumberValue* ret;
 
 	if (isNumber(v)) {
-		n = static_cast<const NumberValue *>(&v);
+		n = static_cast<const NumberValue* >(&v);
 		ret = new NumberValue(getValue());
 
 		if (type == NUMBER)
@@ -189,19 +191,19 @@ Value *NumberValue::operator*(const Value &v) const {
 		return (*static_cast<const Color *>(&v)) * (*this);
 
 	} else if (v.type == STRING) {
-		return (*static_cast<const StringValue *>(&v)) * (*this);
+		return (*static_cast<const StringValue* >(&v)) * (*this);
 
 	} else {
 		throw new ValueException("Unsupported type.", *this->getTokens());
 	}
 }
 
-Value *NumberValue::operator/(const Value &v) const {
-	const NumberValue *n;
-	NumberValue *ret;
+Value* NumberValue::operator/(const Value &v) const {
+	const NumberValue* n;
+	NumberValue* ret;
 
 	if (isNumber(v)) {
-		n = static_cast<const NumberValue *>(&v);
+		n = static_cast<const NumberValue* >(&v);
 		ret = new NumberValue(getValue());
 
 		if (type == NUMBER)
@@ -221,15 +223,15 @@ Value *NumberValue::operator/(const Value &v) const {
 }
 
 bool NumberValue::operator==(const Value &v) const {
-	const NumberValue *n;
-	const BooleanValue *b;
+	const NumberValue* n;
+	const BooleanValue* b;
 
 	if (isNumber(v)) {
-		n = static_cast<const NumberValue *>(&v);
+		n = static_cast<const NumberValue* >(&v);
 		return convert(n->getUnit()) == n->getValue();
 	} else if (v.type == BOOLEAN) {
 		// any number is falsy.
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return (false == b->getValue());
 	} else {
 		throw new ValueException(
@@ -240,14 +242,14 @@ bool NumberValue::operator==(const Value &v) const {
 }
 
 bool NumberValue::operator<(const Value &v) const {
-	const NumberValue *n;
-	const BooleanValue *b;
+	const NumberValue* n;
+	const BooleanValue* b;
 
 	if (isNumber(v)) {
-		n = static_cast<const NumberValue *>(&v);
+		n = static_cast<const NumberValue* >(&v);
 		return (convert(n->getUnit()) < n->getValue());
 	} else if (v.type == BOOLEAN) {
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return b->getValue();
 	} else {
 		throw new ValueException(
@@ -330,3 +332,4 @@ bool NumberValue::isNumber(const Value &val) {
 			val.type == Value::PERCENTAGE);
 }
 
+}

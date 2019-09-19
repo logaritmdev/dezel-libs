@@ -2,8 +2,9 @@
 #include <sstream>
 
 #include "Color.h"
-
 #include "FunctionLibrary.h"
+
+namespace Press {
 
 #define max(x, y) (x > y ? x : y)
 #define min(x, y) (x < y ? x : y)
@@ -148,7 +149,7 @@ Color::Color(const Token &hash) : Value() {
 	}
 }
 
-Color::Color(const Token &name, const char *hash) : Value() {
+Color::Color(const Token &name, const char* hash) : Value() {
 	tokens.push_back(name);
 	token = name;
 	type = Value::COLOR;
@@ -236,7 +237,7 @@ Color::Color(const Color &color) : Value() {
 Color::~Color() {
 }
 
-bool Color::parseHash(const char *hash) {
+bool Color::parseHash(const char* hash) {
 	int len;
 
 	alpha = 1;
@@ -284,7 +285,7 @@ bool Color::parseHash(const char *hash) {
 }
 
 Color *Color::fromName(const Token &name) {
-	std::map<std::string, const char *>::iterator it;
+	std::map<std::string, const char* >::iterator it;
 	it = ColorNames.find(name);
 
 	if (it != ColorNames.end())
@@ -616,12 +617,12 @@ const TokenList *Color::getTokens() const {
 }
 
 
-Value *Color::operator+(const Value &v) const {
+Value* Color::operator+(const Value &v) const {
 	const Color *c;
-	const NumberValue *n;
-	const StringValue *s;
+	const NumberValue* n;
+	const StringValue* s;
 	unsigned int rgb[3];
-	StringValue *ret;
+	StringValue* ret;
 	Color *cret;
 
 	switch (v.type) {
@@ -635,13 +636,13 @@ Value *Color::operator+(const Value &v) const {
 		case NUMBER:
 		case PERCENTAGE:
 		case DIMENSION:
-			n = static_cast<const NumberValue *>(&v);
+			n = static_cast<const NumberValue* >(&v);
 			cret = new Color(*this);
 			cret->increaseRGB(n->getValue(), n->getValue(), n->getValue());
 			return cret;
 
 		case STRING:
-			s = static_cast<const StringValue *>(&v);
+			s = static_cast<const StringValue* >(&v);
 			ret = new StringValue(*this, s->getQuotes());
 			ret->append(*s);
 			return ret;
@@ -654,9 +655,9 @@ colors, numbers or strings.",
 	}
 }
 
-Value *Color::operator-(const Value &v) const {
+Value* Color::operator-(const Value &v) const {
 	const Color *c;
-	const NumberValue *n;
+	const NumberValue* n;
 	unsigned int rgb[3];
 	Color *cret;
 
@@ -671,7 +672,7 @@ Value *Color::operator-(const Value &v) const {
 		case NUMBER:
 		case PERCENTAGE:
 		case DIMENSION:
-			n = static_cast<const NumberValue *>(&v);
+			n = static_cast<const NumberValue* >(&v);
 			cret = new Color(*this);
 			cret->increaseRGB(-n->getValue(), -n->getValue(), -n->getValue());
 			return cret;
@@ -684,9 +685,9 @@ a number from a color.",
 	}
 }
 
-Value *Color::operator*(const Value &v) const {
+Value* Color::operator*(const Value &v) const {
 	const Color *c;
-	const NumberValue *n;
+	const NumberValue* n;
 	unsigned int rgb[3];
 	Color *cret;
 
@@ -701,7 +702,7 @@ Value *Color::operator*(const Value &v) const {
 		case NUMBER:
 		case PERCENTAGE:
 		case DIMENSION:
-			n = static_cast<const NumberValue *>(&v);
+			n = static_cast<const NumberValue* >(&v);
 			cret = new Color(*this);
 			cret->multiplyRGB(n->getValue(), n->getValue(), n->getValue());
 			return cret;
@@ -714,9 +715,9 @@ color or a number.",
 	}
 }
 
-Value *Color::operator/(const Value &v) const {
+Value* Color::operator/(const Value &v) const {
 	const Color *c;
-	const NumberValue *n;
+	const NumberValue* n;
 	unsigned int rgb[3];
 	Color *cret;
 
@@ -732,7 +733,7 @@ Value *Color::operator/(const Value &v) const {
 		case NUMBER:
 		case PERCENTAGE:
 		case DIMENSION:
-			n = static_cast<const NumberValue *>(&v);
+			n = static_cast<const NumberValue* >(&v);
 			cret = new Color(*this);
 			cret->multiplyRGB((float) 1 / n->getValue(),
 							  (float) 1 / n->getValue(),
@@ -748,7 +749,7 @@ color or a number.",
 
 bool Color::operator==(const Value &v) const {
 	const Color *c;
-	const BooleanValue *b;
+	const BooleanValue* b;
 	unsigned int rgb[3];
 
 	switch (v.type) {
@@ -762,7 +763,7 @@ bool Color::operator==(const Value &v) const {
 
 		case BOOLEAN:
 			// any color is falsy.
-			b = static_cast<const BooleanValue *>(&v);
+			b = static_cast<const BooleanValue* >(&v);
 			return false == b->getValue();
 
 		default:
@@ -773,7 +774,7 @@ bool Color::operator==(const Value &v) const {
 
 bool Color::operator<(const Value &v) const {
 	const Color *c;
-	const BooleanValue *b;
+	const BooleanValue* b;
 	unsigned int rgb[3];
 
 	switch (v.type) {
@@ -784,7 +785,7 @@ bool Color::operator<(const Value &v) const {
 					this->rgb[RGB_GREEN] < rgb[RGB_GREEN] ||
 					this->rgb[RGB_BLUE] < rgb[RGB_BLUE]);
 		case BOOLEAN:
-			b = static_cast<const BooleanValue *>(&v);
+			b = static_cast<const BooleanValue* >(&v);
 			return b->getValue();
 
 		default:
@@ -794,8 +795,8 @@ bool Color::operator<(const Value &v) const {
 }
 
 
-std::map<string, const char *> create_map_ColorNames() {
-	std::map<string, const char *> m;
+std::map<string, const char* > create_map_ColorNames() {
+	std::map<string, const char* > m;
 	m["black"] = "#000000";
 	m["silver"] = "#c0c0c0";
 	m["gray"] = "#808080";
@@ -949,4 +950,6 @@ std::map<string, const char *> create_map_ColorNames() {
 	return m;
 }
 
-std::map<string, const char *> Color::ColorNames = create_map_ColorNames();
+std::map<string, const char* > Color::ColorNames = create_map_ColorNames();
+
+}

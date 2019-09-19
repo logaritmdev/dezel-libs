@@ -1,11 +1,13 @@
 #include "ParseException.h"
 
+namespace Press {
+
 ParseException::ParseException(const std::string found,
 	const std::string &expected,
 	unsigned int line,
 	unsigned int column,
 	const std::string source) :
-	StylerException(line, column, source) {
+	Exception(line, column, source) {
 
 	err.append("Found \"");
 	err.append(translate(found));
@@ -14,23 +16,23 @@ ParseException::ParseException(const std::string found,
 }
 
 ParseException::ParseException(const std::string found,
-	const char *expected,
+	const char* expected,
 	unsigned int line,
 	unsigned int column,
 	const std::string source) :
-	StylerException(line, column, source) {
+	Exception(line, column, source) {
 	err.append("Found \"");
 	err.append(translate(found));
 	err.append("\" when expecting ");
 	err.append(expected);
 }
 
-ParseException::ParseException(const char *found,
-	const char *expected,
+ParseException::ParseException(const char* found,
+	const char* expected,
 	unsigned int line,
 	unsigned int column,
 	const std::string source) :
-	StylerException(line, column, source) {
+	Exception(line, column, source) {
 	err.append("Found \"");
 	if (found[0] == -1)
 		err.append("end of file");
@@ -40,16 +42,16 @@ ParseException::ParseException(const char *found,
 	err.append(expected);
 }
 
-ParseException::ParseException(const Token &found, const char *expected) :
-	StylerException(found) {
+ParseException::ParseException(const Token &found, const char* expected) :
+	Exception(found) {
 	err.append("Found \"");
 	err.append(translate(found));
 	err.append("\" when expecting ");
 	err.append(expected);
 }
 
-ParseException::ParseException(const TokenList &found, const char *expected) :
-	StylerException(found.front()) {
+ParseException::ParseException(const TokenList &found, const char* expected) :
+	Exception(found.front()) {
 	err.append("Found \"");
 	err.append(translate(found.toString()));
 	err.append("\" when expecting ");
@@ -57,7 +59,7 @@ ParseException::ParseException(const TokenList &found, const char *expected) :
 }
 
 
-const char *ParseException::what() const throw() {
+const char* ParseException::what() const throw() {
 	return err.c_str();
 }
 
@@ -65,4 +67,6 @@ std::string ParseException::translate(std::string found) {
 	if (found == "\n")
 		return "newline";
 	return found;
+}
+
 }

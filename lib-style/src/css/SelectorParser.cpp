@@ -1,5 +1,7 @@
 #include "SelectorParser.h"
 
+namespace Press {
+
 bool SelectorParser::parse(TokenList &tokens,
 	Selector &selector) {
 	TokenList::const_iterator begin, end;
@@ -40,4 +42,6 @@ TokenList::const_iterator SelectorParser::findComma(TokenList &tokens,
 		}
 	}
 	return offset;
+}
+
 }

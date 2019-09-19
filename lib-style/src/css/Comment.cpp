@@ -1,5 +1,7 @@
 #include "Comment.h"
 
+namespace Press {
+
 Comment::Comment() {
 	comment = "";
 }
@@ -30,4 +32,6 @@ void Comment::process(Stylesheet &s, void *context) const {
 
 void Comment::write(Writer &writer) const {
 	writer.writeComment(comment);
+}
+
 }

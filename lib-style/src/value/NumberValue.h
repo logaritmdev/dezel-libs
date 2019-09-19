@@ -7,6 +7,7 @@
 #include "UnitValue.h"
 #include "Value.h"
 
+namespace Press {
 
 class NumberValue : public Value {
 
@@ -20,10 +21,10 @@ public:
 	virtual ~NumberValue();
 	static bool isNumber(const Value &val);
 	double convert(const std::string &unit) const;
-	virtual Value *operator+(const Value &v) const;
-	virtual Value *operator-(const Value &v) const;
-	virtual Value *operator*(const Value &v) const;
-	virtual Value *operator/(const Value &v) const;
+	virtual Value* operator+(const Value &v) const;
+	virtual Value* operator-(const Value &v) const;
+	virtual Value* operator*(const Value &v) const;
+	virtual Value* operator/(const Value &v) const;
 	virtual bool operator==(const Value &v) const;
 	virtual bool operator<(const Value &v) const;
 	void setType(const NumberValue &n);
@@ -33,4 +34,6 @@ public:
 	void setValue(double d);
 };
 
-#endif  // __value_NumberValue_h__
+}
+
+#endif

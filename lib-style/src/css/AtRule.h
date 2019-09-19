@@ -3,13 +3,14 @@
 
 #include "Stylesheet.h"
 #include "StylesheetStatement.h"
-
 #include "Writer.h"
-
 #include "Token.h"
 #include "TokenList.h"
 
+namespace Press {
+
 class AtRule : public StylesheetStatement {
+
 private:
 	Token keyword;
 	TokenList rule;
@@ -26,4 +27,6 @@ public:
 	virtual void write(Writer &writer) const;
 };
 
-#endif  // __AtRule_h__
+}
+
+#endif

@@ -1,13 +1,15 @@
 #include "SourceMapWriter.h"
 
-const char *SourceMapWriter::base64 =
+namespace Press {
+
+const char* SourceMapWriter::base64 =
 	"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 SourceMapWriter::SourceMapWriter(std::ostream &sourcemap,
-	std::list<const char *> &sources,
-	std::list<const char *> &relative_sources,
-	const char *out_filename,
-	const char *rootpath)
+	std::list<const char* > &sources,
+	std::list<const char* > &relative_sources,
+	const char* out_filename,
+	const char* rootpath)
 	: sourcemap_h(sourcemap), sources(sources) {
 	lastDstColumn = 0;
 	lastSrcFile = 0;
@@ -20,11 +22,11 @@ SourceMapWriter::SourceMapWriter(std::ostream &sourcemap,
 SourceMapWriter::~SourceMapWriter() {
 }
 
-void SourceMapWriter::writePreamble(const char *out_filename,
-	std::list<const char *> &sources,
-	const char *rootpath) {
-	std::list<const char *>::iterator it;
-	const char *source;
+void SourceMapWriter::writePreamble(const char* out_filename,
+	std::list<const char* > &sources,
+	const char* rootpath) {
+	std::list<const char* >::iterator it;
+	const char* source;
 
 	sourcemap_h << "{";
 
@@ -79,8 +81,8 @@ void SourceMapWriter::writeNewline() {
 	firstSegment = true;
 }
 
-size_t SourceMapWriter::sourceFileIndex(const char *file) {
-	std::list<const char *>::iterator i;
+size_t SourceMapWriter::sourceFileIndex(const char* file) {
+	std::list<const char* >::iterator i;
 	size_t pos = 0;
 
 	for (i = sources.begin(); i != sources.end(); i++, pos++) {
@@ -92,9 +94,9 @@ size_t SourceMapWriter::sourceFileIndex(const char *file) {
 
 size_t SourceMapWriter::encodeMapping(unsigned int column,
 	const Token &source,
-	char *buffer) {
+	char* buffer) {
 	unsigned int srcFileIndex = (unsigned int) sourceFileIndex(source.source);
-	char *start = buffer;
+	char* start = buffer;
 
 	if (srcFileIndex == sources.size())
 		return 0;
@@ -112,7 +114,7 @@ size_t SourceMapWriter::encodeMapping(unsigned int column,
 	return buffer - start;
 }
 
-size_t SourceMapWriter::encodeField(int field, char *buffer) {
+size_t SourceMapWriter::encodeField(int field, char* buffer) {
 	// convert to unsigned to get the binary right
 	unsigned int value = abs(field);
 	unsigned int current = (value & 0xF) << 1;
@@ -134,4 +136,6 @@ size_t SourceMapWriter::encodeField(int field, char *buffer) {
 
 	buffer[pos] = base64[current];
 	return pos + 1;
+}
+
 }

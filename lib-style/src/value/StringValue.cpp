@@ -1,6 +1,8 @@
 #include "StringValue.h"
 #include "FunctionLibrary.h"
 
+namespace Press {
+
 StringValue::StringValue(const Token &token, bool quotes) {
 	type = Value::STRING;
 	tokens.push_back(token);
@@ -25,12 +27,12 @@ StringValue::StringValue(const StringValue &s) : Value() {
 }
 
 StringValue::StringValue(const Value &val, bool quotes) {
-	const StringValue *sval;
+	const StringValue* sval;
 	Token token = val.getTokens()->front();
 	token.type = Token::STRING;
 
 	if (val.type == STRING) {
-		sval = static_cast<const StringValue *>(&val);
+		sval = static_cast<const StringValue* >(&val);
 		token = sval->getString();
 	} else {
 		token = val.getTokens()->toString();
@@ -83,10 +85,10 @@ bool StringValue::getQuotes() const {
 }
 
 void StringValue::append(const Value &v) {
-	const StringValue *s;
+	const StringValue* s;
 
 	if (v.type == STRING) {
-		s = static_cast<const StringValue *>(&v);
+		s = static_cast<const StringValue* >(&v);
 		strvalue.append(s->getString());
 	} else {
 		strvalue.append(v.getTokens()->toString());
@@ -95,28 +97,28 @@ void StringValue::append(const Value &v) {
 	updateTokens();
 }
 
-Value *StringValue::operator+(const Value &v) const {
-	StringValue *sv = new StringValue(*this);
+Value* StringValue::operator+(const Value &v) const {
+	StringValue* sv = new StringValue(*this);
 	sv->append(v);
 	return sv;
 }
 
-Value *StringValue::operator-(const Value &v) const {
+Value* StringValue::operator-(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't substract from strings.", *this->getTokens());
 }
 
-Value *StringValue::operator*(const Value &v) const {
+Value* StringValue::operator*(const Value &v) const {
 	std::string newstr;
 	double i;
-	const NumberValue *n;
+	const NumberValue* n;
 
 	if (v.type != Value::NUMBER) {
 		throw new ValueException("Strings can only be multiplied by a number.",
 								 *this->getTokens());
 	}
 
-	n = static_cast<const NumberValue *>(&v);
+	n = static_cast<const NumberValue* >(&v);
 
 	for (i = 0; i < n->getValue(); i++) {
 		newstr.append(getString());
@@ -124,22 +126,22 @@ Value *StringValue::operator*(const Value &v) const {
 	return new StringValue(newstr, getQuotes());
 }
 
-Value *StringValue::operator/(const Value &v) const {
+Value* StringValue::operator/(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't divide strings.", *this->getTokens());
 }
 
 bool StringValue::operator==(const Value &v) const {
-	const StringValue *s;
-	const BooleanValue *b;
+	const StringValue* s;
+	const BooleanValue* b;
 
 	if (v.type == STRING) {
-		s = static_cast<const StringValue *>(&v);
+		s = static_cast<const StringValue* >(&v);
 		return getString() == s->getString();
 
 	} else if (v.type == BOOLEAN) {
 		// any string is falsy.
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return false == b->getValue();
 	} else {
 		throw new ValueException("You can only compare a string with a *string*.",
@@ -148,14 +150,14 @@ bool StringValue::operator==(const Value &v) const {
 }
 
 bool StringValue::operator<(const Value &v) const {
-	const StringValue *s;
-	const BooleanValue *b;
+	const StringValue* s;
+	const BooleanValue* b;
 
 	if (v.type == STRING) {
-		s = static_cast<const StringValue *>(&v);
+		s = static_cast<const StringValue* >(&v);
 		return getString() < s->getString();
 	} else if (v.type == BOOLEAN) {
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return b->getValue();
 	} else {
 		throw new ValueException("You can only compare a string with a *string*.",
@@ -181,3 +183,4 @@ string StringValue::escape(string rawstr, string extraUnreserved) {
 	return newstr.str();
 }
 
+}

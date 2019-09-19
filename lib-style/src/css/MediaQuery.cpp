@@ -1,5 +1,7 @@
 #include "MediaQuery.h"
 
+namespace Press {
+
 const Token MediaQuery::BUILTIN_AND(
 	"and", Token::IDENTIFIER, 0, 0, Token::BUILTIN_SOURCE);
 
@@ -40,4 +42,6 @@ void MediaQuery::write(Writer &writer) const {
 	Stylesheet::write(writer);
 
 	writer.writeMediaQueryEnd();
+}
+
 }

@@ -1,6 +1,8 @@
 #include "Tokenizer.h"
 
-Tokenizer::Tokenizer(istream &in, const char *source)
+namespace Press {
+
+Tokenizer::Tokenizer(istream &in, const char* source)
 	: in(&in), line(0), source(source) {
 	currentToken.source = source;
 	lastRead = 0;
@@ -11,7 +13,7 @@ Tokenizer::Tokenizer(istream &in, const char *source)
 Tokenizer::~Tokenizer() {
 }
 
-const char *Tokenizer::getSource() {
+const char* Tokenizer::getSource() {
 	return source;
 }
 
@@ -621,4 +623,6 @@ bool Tokenizer::lastReadIsHex() {
 		lastReadInRange('a', 'f') ||
 		lastReadInRange('A', 'F')
    ));
+}
+
 }

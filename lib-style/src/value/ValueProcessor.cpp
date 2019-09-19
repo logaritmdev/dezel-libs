@@ -5,6 +5,7 @@
 #include "StringFunctions.h"
 #include "UrlFunctions.h"
 
+namespace Press {
 
 ValueProcessor::ValueProcessor() {
 	NumberFunctions::loadFunctions(functionLibrary);
@@ -20,7 +21,7 @@ void ValueProcessor::processValue(TokenList &value,
 	const ValueScope &scope) const {
 	TokenList::iterator i;
 	TokenList newvalue;
-	Value *v;
+	Value* v;
 	const TokenList *var;
 	TokenList variable;
 	const TokenList *oldvalue = &value;
@@ -47,8 +48,8 @@ void ValueProcessor::processValue(TokenList &value,
 
 		// add spaces between values
 		if (v != NULL || i2 != end) {
-			if (newvalue.size() == 0 || !needsSpace(newvalue.back(), false) ||
-				(v == NULL && !needsSpace(*i2, true))) {
+			if (newvalue.size() == 0 || !neePresspace(newvalue.back(), false) ||
+				(v == NULL && !neePresspace(*i2, true))) {
 			} else {
 				newvalue.push_back(Token::BUILTIN_SPACE);
 			}
@@ -170,7 +171,7 @@ bool ValueProcessor::validateValue(TokenList::const_iterator &i,
 	const ValueScope &scope,
 	bool defaultVal) const {
 	const Token *reference;
-	Value *v;
+	Value* v;
 	const BooleanValue trueVal(true);
 	bool ret;
 
@@ -195,22 +196,22 @@ bool ValueProcessor::validateValue(TokenList::const_iterator &i,
 	return ret;
 }
 
-Value *ValueProcessor::processStatement(const TokenList &tokens,
+Value* ValueProcessor::processStatement(const TokenList &tokens,
 	const ValueScope &scope) const {
 	TokenList::const_iterator i = tokens.begin();
 	TokenList::const_iterator end = tokens.end();
-	Value *ret = processStatement(i, end, scope);
+	Value* ret = processStatement(i, end, scope);
 
 	if (i != end)
 		return NULL;
 	return ret;
 }
 
-Value *ValueProcessor::processStatement(TokenList::const_iterator &i,
+Value* ValueProcessor::processStatement(TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const ValueScope &scope,
 	bool defaultVal) const {
-	Value *op, *v;
+	Value* op, *v;
 
 	skipWhitespace(i, end);
 	v = processConstant(i, end, scope, defaultVal);
@@ -230,7 +231,7 @@ Value *ValueProcessor::processStatement(TokenList::const_iterator &i,
 		return NULL;
 }
 
-Value *ValueProcessor::processOperation(
+Value* ValueProcessor::processOperation(
 	TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const Value &operand1,
@@ -239,8 +240,8 @@ Value *ValueProcessor::processOperation(
 	bool defaultVal) const {
 
 	TokenList::const_iterator tmp;
-	const Value *operand2;
-	Value *result;
+	const Value* operand2;
+	Value* result;
 	Operator op;
 	const Token *opToken;
 
@@ -344,7 +345,7 @@ ValueProcessor::Operator ValueProcessor::processOperator(
 		return OP_NONE;
 }
 
-const char *ValueProcessor::operatorToString(ValueProcessor::Operator o) const {
+const char* ValueProcessor::operatorToString(ValueProcessor::Operator o) const {
 	switch (o) {
 		case OP_EQUALS:
 			return "=";
@@ -370,12 +371,12 @@ const char *ValueProcessor::operatorToString(ValueProcessor::Operator o) const {
 	}
 }
 
-Value *ValueProcessor::processConstant(TokenList::const_iterator &i,
+Value* ValueProcessor::processConstant(TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const ValueScope &scope,
 	bool defaultVal) const {
 	Token token;
-	Value *ret;
+	Value* ret;
 	const TokenList *var;
 	TokenList variable;
 	bool hasQuotes;
@@ -501,11 +502,11 @@ Value *ValueProcessor::processConstant(TokenList::const_iterator &i,
 	return NULL;
 }
 
-Value *ValueProcessor::processSubstatement(TokenList::const_iterator &i,
+Value* ValueProcessor::processSubstatement(TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const ValueScope &scope,
 	bool defaultVal) const {
-	Value *ret;
+	Value* ret;
 	TokenList::const_iterator i2 = i;
 
 	if (i == end || (*i).type != Token::PAREN_OPEN)
@@ -569,11 +570,11 @@ const TokenList *ValueProcessor::processDeepVariable(
 	return scope.getVariable(key);
 }
 
-bool ValueProcessor::functionExists(const char *function) const {
+bool ValueProcessor::functionExists(const char* function) const {
 	return ((functionLibrary.getFunction(function)) != NULL);
 }
 
-Value *ValueProcessor::processFunction(const Token &function,
+Value* ValueProcessor::processFunction(const Token &function,
 	TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const ValueScope &scope) const {
@@ -581,11 +582,11 @@ Value *ValueProcessor::processFunction(const Token &function,
 	// processing fails
 	TokenList::const_iterator i2 = i;
 
-	vector<const Value *> arguments;
+	vector<const Value*> arguments;
 
 	const FuncInfo *fi;
-	Value *ret = NULL;
-	vector<const Value *>::iterator it;
+	Value* ret = NULL;
+	vector<const Value* >::iterator it;
 	string arg_str;
 
 	std::ostringstream fnc_str;
@@ -628,8 +629,8 @@ Value *ValueProcessor::processFunction(const Token &function,
 bool ValueProcessor::processArguments(TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const ValueScope &scope,
-	vector<const Value *> &arguments) const {
-	Value *argument;
+	vector<const Value*> &arguments) const {
+	Value* argument;
 
 	if (i == end)
 		return false;
@@ -667,7 +668,7 @@ bool ValueProcessor::processArguments(TokenList::const_iterator &i,
 	return true;
 }
 
-Value *ValueProcessor::processEscape(TokenList::const_iterator &i,
+Value* ValueProcessor::processEscape(TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const ValueScope &scope) const {
 	Token t;
@@ -689,7 +690,7 @@ Value *ValueProcessor::processEscape(TokenList::const_iterator &i,
 	return new StringValue(t, false);
 }
 
-UnitValue *ValueProcessor::processUnit(Token &t) const {
+UnitValue* ValueProcessor::processUnit(Token &t) const {
 	// em,ex,px,ch,in,mm,cm,pt,pc,ms
 	string units("emexpxchinmmcmptpcms");
 	size_t pos;
@@ -703,7 +704,7 @@ UnitValue *ValueProcessor::processUnit(Token &t) const {
 		return NULL;
 }
 
-bool ValueProcessor::needsSpace(const Token &t, bool before) const {
+bool ValueProcessor::neePresspace(const Token &t, bool before) const {
 	if (t.type == Token::OTHER && t.size() == 1 &&
 		string(":=.").find(t[0]) != string::npos) {
 		return false;
@@ -725,12 +726,12 @@ void ValueProcessor::skipWhitespace(TokenList::const_iterator &i,
 		i++;
 }
 
-Value *ValueProcessor::processNegative(TokenList::const_iterator &i,
+Value* ValueProcessor::processNegative(TokenList::const_iterator &i,
 	TokenList::const_iterator &end,
 	const ValueScope &scope) const {
 	Token minus;
-	Value *constant;
-	Value *zero, *ret;
+	Value* constant;
+	Value* zero, *ret;
 	Token t_zero("0", Token::NUMBER, 0, 0, "generated");
 
 	if (i == end || (*i) != "-")
@@ -797,4 +798,6 @@ void ValueProcessor::interpolate(TokenList &tokens,
 	for (i = tokens.begin(); i != tokens.end(); i++) {
 		interpolate((*i), scope);
 	}
+}
+
 }

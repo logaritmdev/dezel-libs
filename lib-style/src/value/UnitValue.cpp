@@ -1,5 +1,7 @@
 #include "UnitValue.h"
 
+namespace Press {
+
 UnitValue::UnitValue(Token &token) {
 	tokens.push_back(token);
 	type = UNIT;
@@ -8,17 +10,17 @@ UnitValue::UnitValue(Token &token) {
 UnitValue::~UnitValue() {
 }
 
-const char *UnitValue::getUnit() const {
+const char* UnitValue::getUnit() const {
 	return tokens.front().c_str();
 }
 
-Value *UnitValue::operator+(const Value &v) const {
+Value* UnitValue::operator+(const Value &v) const {
 	Token t;
-	const StringValue *s;
-	StringValue *ret;
+	const StringValue* s;
+	StringValue* ret;
 
 	if (v.type == STRING) {
-		s = static_cast<const StringValue *>(&v);
+		s = static_cast<const StringValue* >(&v);
 		t = this->tokens.front();
 		t.type = Token::STRING;
 		ret = new StringValue(t, s->getQuotes());
@@ -28,31 +30,31 @@ Value *UnitValue::operator+(const Value &v) const {
 	throw new ValueException("Can't do math on unit types.", *this->getTokens());
 }
 
-Value *UnitValue::operator-(const Value &v) const {
+Value* UnitValue::operator-(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't do math on unit types.", *this->getTokens());
 }
 
-Value *UnitValue::operator*(const Value &v) const {
+Value* UnitValue::operator*(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't do math on unit types.", *this->getTokens());
 }
 
-Value *UnitValue::operator/(const Value &v) const {
+Value* UnitValue::operator/(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't do math on unit types.", *this->getTokens());
 }
 
 bool UnitValue::operator<(const Value &v) const {
-	const UnitValue *u;
-	const BooleanValue *b;
+	const UnitValue* u;
+	const BooleanValue* b;
 
 	if (v.type == UNIT) {
-		u = static_cast<const UnitValue *>(&v);
+		u = static_cast<const UnitValue* >(&v);
 		return (getUnit() < u->getUnit());
 
 	} else if (v.type == BOOLEAN) {
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return (b->getValue());
 
 	} else {
@@ -62,16 +64,16 @@ bool UnitValue::operator<(const Value &v) const {
 }
 
 bool UnitValue::operator==(const Value &v) const {
-	const UnitValue *u;
-	const BooleanValue *b;
+	const UnitValue* u;
+	const BooleanValue* b;
 
 	if (v.type == UNIT) {
-		u = static_cast<const UnitValue *>(&v);
+		u = static_cast<const UnitValue* >(&v);
 		return (getUnit() == u->getUnit());
 
 	} else if (v.type == BOOLEAN) {
 		// any unit is falsy.
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return (false == b->getValue());
 
 	} else {
@@ -197,4 +199,6 @@ double UnitValue::radToAngle(const double rad, const std::string &unit) {
 		return rad / (2 * pi);
 
 	return -1;
+}
+
 }

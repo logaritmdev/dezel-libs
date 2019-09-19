@@ -5,6 +5,8 @@
 #include "Ruleset.h"
 #include "StylesheetStatement.h"
 
+namespace Press {
+
 Stylesheet::~Stylesheet() {
 	rulesets.clear();
 	atrules.clear();
@@ -114,4 +116,6 @@ void Stylesheet::write(Writer &writer) const {
 	for (i = statements.begin(); i != statements.end(); i++) {
 		(*i)->write(writer);
 	}
+}
+
 }

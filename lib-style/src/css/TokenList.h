@@ -4,7 +4,10 @@
 #include <list>
 #include "Token.h"
 
+namespace Press {
+
 class TokenList : public std::list<Token> {
+
 public:
 	virtual ~TokenList();
 	void ltrim();
@@ -18,4 +21,6 @@ public:
 	const_iterator find(const TokenList &find, const_iterator &offset) const;
 };
 
-#endif  // __TokenList_h__
+}
+
+#endif 

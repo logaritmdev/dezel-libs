@@ -5,11 +5,10 @@
 #include "TokenList.h"
 #include "ValueException.h"
 
+namespace Press {
+
 class BooleanValue;
 
-/**
- *
- */
 class Value {
 protected:
 	TokenList tokens;
@@ -32,17 +31,17 @@ public:
 	virtual ~Value();
 	void setLocation(const Token &ref);
 	virtual const TokenList *getTokens() const;
-	virtual Value *operator+(const Value &v) const = 0;
-	virtual Value *operator-(const Value &v) const = 0;
-	virtual Value *operator*(const Value &v) const = 0;
-	virtual Value *operator/(const Value &v) const = 0;
+	virtual Value* operator+(const Value &v) const = 0;
+	virtual Value* operator-(const Value &v) const = 0;
+	virtual Value* operator*(const Value &v) const = 0;
+	virtual Value* operator/(const Value &v) const = 0;
 	virtual bool operator==(const Value &v) const;
 	virtual bool operator!=(const Value &v) const;
 	virtual bool operator<(const Value &v) const;
 	virtual bool operator>(const Value &v) const;
 	virtual bool operator<=(const Value &v) const;
 	virtual bool operator>=(const Value &v) const;
-	static const char *typeToString(const Type &t);
+	static const char* typeToString(const Type &t);
 
 	/**
 	 * return a type for a type code.
@@ -58,6 +57,8 @@ public:
 	static Type codeToType(const char code);
 };
 
+}
+
 #include "BooleanValue.h"
 
-#endif  // __value_Value_h__
+#endif

@@ -1,7 +1,9 @@
 #include "ProcessingContext.h"
-#include "StylerRuleset.h"
-#include "StylerStylesheet.h"
-#include "StylerMixinCall.h"
+#include "PressRuleset.h"
+#include "PressStylesheet.h"
+#include "PressMixinCall.h"
+
+namespace Press {
 
 ProcessingContext::ProcessingContext() {
 	stack = NULL;
@@ -11,11 +13,11 @@ ProcessingContext::ProcessingContext() {
 ProcessingContext::~ProcessingContext() {
 }
 
-void ProcessingContext::setLessStylesheet(const StylerStylesheet &stylesheet) {
+void ProcessingContext::setPressStylesheet(const PressStylesheet &stylesheet) {
 	contextStylesheet = &stylesheet;
 }
 
-const StylerStylesheet *ProcessingContext::getLessStylesheet() const {
+const PressStylesheet *ProcessingContext::getPressStylesheet() const {
 	return contextStylesheet;
 }
 
@@ -27,14 +29,14 @@ const TokenList *ProcessingContext::getVariable(const std::string &key) const {
 			return t;
 		return NULL;
 	} else
-		return getLessStylesheet()->getVariable(key, *this);
+		return getPressStylesheet()->getVariable(key, *this);
 }
 
 const TokenList *ProcessingContext::getFunctionVariable
 	(const std::string &key,
-		const StylerFunction *function) const {
+		const PressFunction *function) const {
 
-	std::map<const StylerFunction *, VariableMap>::const_iterator it;
+	std::map<const PressFunction *, VariableMap>::const_iterator it;
 
 	if ((it = variables.find(function)) != variables.end())
 		return (*it).second.getVariable(key);
@@ -47,10 +49,10 @@ const TokenList *ProcessingContext::getBaseVariable
 	return base_variables.getVariable(key);
 }
 
-void ProcessingContext::pushMixinCall(const StylerFunction &function,
+void ProcessingContext::pushMixinCall(const PressFunction &function,
 	bool savepoint,
 	bool important) {
-	stack = new StylerMixinCall(stack, function, savepoint, important);
+	stack = new PressMixinCall(stack, function, savepoint, important);
 }
 
 void ProcessingContext::popMixinCall() {
@@ -66,8 +68,8 @@ VariableMap *ProcessingContext::getStackArguments() const {
 		return NULL;
 }
 
-VariableMap *ProcessingContext::getStackArguments(const StylerFunction *function) const {
-	StylerMixinCall *tmp = stack;
+VariableMap *ProcessingContext::getStackArguments(const PressFunction *function) const {
+	PressMixinCall *tmp = stack;
 	while (tmp != NULL) {
 		if (tmp->function == function)
 			return &tmp->arguments;
@@ -84,8 +86,8 @@ bool ProcessingContext::isSavePoint() const {
 	return (stack != NULL && stack->savepoint);
 }
 
-const StylerFunction *ProcessingContext::getSavePoint() const {
-	StylerMixinCall *tmp = stack;
+const PressFunction *ProcessingContext::getSavePoint() const {
+	PressMixinCall *tmp = stack;
 	while (tmp != NULL && !tmp->savepoint)
 		tmp = tmp->parent;
 	return (tmp == NULL) ? NULL : tmp->function;
@@ -95,22 +97,22 @@ bool ProcessingContext::isImportant() const {
 	return (stack != NULL && stack->important);
 }
 
-void ProcessingContext::getFunctions(std::list<const StylerFunction *> &functionList,
-	const StylerMixin &mixin) const {
+void ProcessingContext::getFunctions(std::list<const PressFunction *> &functionList,
+	const PressMixin &mixin) const {
 	if (stack != NULL)
 		stack->getFunctions(functionList, mixin, *this);
 	else if (contextStylesheet != NULL)
 		contextStylesheet->getFunctions(functionList, mixin, *this);
 }
 
-bool ProcessingContext::isInStack(const StylerFunction &function) const {
+bool ProcessingContext::isInStack(const PressFunction &function) const {
 	if (stack != NULL)
 		return stack->isInStack(function);
 	else
 		return false;
 }
 
-void ProcessingContext::pushExtensionScope(std::list<StylerExtension> &scope) {
+void ProcessingContext::pushExtensionScope(std::list<PressExtension> &scope) {
 	extensions.push_back(&scope);
 }
 
@@ -118,21 +120,21 @@ void ProcessingContext::popExtensionScope() {
 	extensions.pop_back();
 }
 
-void ProcessingContext::addExtension(StylerExtension &extension) {
+void ProcessingContext::addExtension(PressExtension &extension) {
 	if (!extensions.empty())
 		extensions.back()->push_back(extension);
 }
 
-std::list<StylerExtension> *ProcessingContext::getExtensions() {
+std::list<PressExtension> *ProcessingContext::getExtensions() {
 	return (!extensions.empty()) ? extensions.back() : NULL;
 }
 
-void ProcessingContext::addClosure(const StylerRuleset &ruleset) {
+void ProcessingContext::addClosure(const PressRuleset &ruleset) {
 	if (stack == NULL)
 		return;
 
-	const StylerFunction *fnc = getSavePoint();
-	StylerClosure *c = new StylerClosure(ruleset, *stack);
+	const PressFunction *fnc = getSavePoint();
+	PressClosure *c = new PressClosure(ruleset, *stack);
 
 	if (fnc != NULL)
 		closures[fnc].push_back(c);
@@ -141,15 +143,15 @@ void ProcessingContext::addClosure(const StylerRuleset &ruleset) {
 }
 
 void ProcessingContext::addVariables(const VariableMap &variables) {
-	const StylerFunction *fnc = getSavePoint();
+	const PressFunction *fnc = getSavePoint();
 	if (fnc != NULL)
 		this->variables[fnc].overwrite(variables);
 	else
 		base_variables.overwrite(variables);
 }
 
-const std::list<StylerClosure *> *ProcessingContext::getClosures(const StylerFunction *function) const {
-	std::map<const StylerFunction *, std::list<StylerClosure *>>::const_iterator it;
+const std::list<PressClosure *> *ProcessingContext::getClosures(const PressFunction *function) const {
+	std::map<const PressFunction *, std::list<PressClosure *>>::const_iterator it;
 
 	if ((it = closures.find(function)) != closures.end())
 		return &(*it).second;
@@ -157,7 +159,7 @@ const std::list<StylerClosure *> *ProcessingContext::getClosures(const StylerFun
 		return NULL;
 }
 
-const std::list<StylerClosure *> *ProcessingContext::getBaseClosures() const {
+const std::list<PressClosure *> *ProcessingContext::getBaseClosures() const {
 	return &base_closures;
 }
 
@@ -187,4 +189,6 @@ void ProcessingContext::processValue(TokenList &value) const {
 
 bool ProcessingContext::validateCondition(const TokenList &value, bool defaultVal) const {
 	return processor.validateCondition(value, *this, defaultVal);
+}
+
 }

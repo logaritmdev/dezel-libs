@@ -7,15 +7,17 @@
 #include "TokenList.h"
 #include "SourceMapWriter.h"
 
+namespace Press {
+
 class Selector;
 
-
 class Writer {
+
 protected:
 	std::ostream *out;
 	unsigned int column;
 	SourceMapWriter *sourcemap;
-	void writeStr(const char *str, size_t len);
+	void writeStr(const char* str, size_t len);
 	void writeToken(const Token &token);
 	void writeTokenList(const TokenList &tokens);
 	virtual void writeSelector(const Selector &selector);
@@ -26,7 +28,7 @@ public:
 	Writer();
 	Writer(std::ostream &out);
 	Writer(std::ostream &out, SourceMapWriter &sourcemap);
-	const char *rootpath;
+	const char* rootpath;
 	unsigned int getColumn();
 	virtual ~Writer();
 	virtual void writeAtRule(const Token &keyword, const TokenList &rule);
@@ -37,7 +39,9 @@ public:
 	virtual void writeComment(const Token &comment);
 	virtual void writeMediaQueryStart(const TokenList &selector);
 	virtual void writeMediaQueryEnd();
-	void writeSourceMapUrl(const char *sourcemap_url);
+	void writeSourceMapUrl(const char* sourcemap_url);
 };
 
-#endif  // __css_CssWriter_h__
+}
+
+#endif

@@ -1,5 +1,5 @@
-#ifndef __CssComment_h__
-#define __CssComment_h__
+#ifndef __Comment_h__
+#define __Comment_h__
 
 #include "Token.h"
 #include "Writer.h"
@@ -7,7 +7,10 @@
 #include "Stylesheet.h"
 #include "StylesheetStatement.h"
 
+namespace Press {
+
 class Comment : public StylesheetStatement, public RulesetStatement {
+
 protected:
 	Token comment;
 
@@ -21,4 +24,6 @@ public:
 	virtual void write(Writer &writer) const;
 };
 
-#endif  // __CssComment_h__
+}
+
+#endif

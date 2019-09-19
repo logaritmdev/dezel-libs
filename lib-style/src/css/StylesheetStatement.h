@@ -4,7 +4,10 @@
 #include "Writable.h"
 #include "Stylesheet.h"
 
+namespace Press {
+
 class StylesheetStatement : public Writable {
+
 protected:
 	Stylesheet *stylesheet;
 	bool reference;
@@ -19,4 +22,6 @@ public:
 	virtual void process(Stylesheet &s, void *context) const = 0;
 };
 
-#endif  // __StylesheetStatement_h__
+}
+
+#endif 

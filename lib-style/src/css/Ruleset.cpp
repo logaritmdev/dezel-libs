@@ -1,5 +1,6 @@
 #include "Ruleset.h"
 
+namespace Press {
 
 Ruleset::Ruleset() {
 }
@@ -116,4 +117,6 @@ void Ruleset::write(Writer &writer) const {
 		(*i)->write(writer);
 	}
 	writer.writeRulesetEnd();
+}
+
 }

@@ -3,25 +3,28 @@
 
 #include <string>
 #include "TokenList.h"
-#include "StylerException.h"
+#include "Exception.h"
 
-/**
- *
- */
-class ValueException : public StylerException {
+namespace Press {
+
+class ValueException : public Exception {
+
 public:
+
 	std::string err;
 
 	ValueException(std::string message, const TokenList &source) :
-		StylerException(source.front()) {
+		Exception(source.front()) {
 		err = message;
 	}
 
 	virtual ~ValueException() throw() {};
 
-	virtual const char *what() const throw() {
+	virtual const char* what() const throw() {
 		return err.c_str();
 	}
 };
 
-#endif  // __value_ValueException_h__
+}
+
+#endif

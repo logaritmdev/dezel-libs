@@ -1,5 +1,7 @@
 #include "VariableMap.h"
 
+namespace Press {
+
 const TokenList *VariableMap::getVariable(const std::string &key) const {
 	VariableMap::const_iterator mit;
 
@@ -32,4 +34,6 @@ std::string VariableMap::toString() const {
 		str.append("\n");
 	}
 	return str;
+}
+
 }

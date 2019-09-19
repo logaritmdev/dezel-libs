@@ -5,33 +5,7 @@
 #include <png.h>
 #endif
 
-#ifdef WITH_LIBJPEG
-#include <jpeglib.h>
-#include <setjmp.h>
-#include <stdio.h>
-
-struct urlvalue_jpeg_error_mgr {
-  struct jpeg_error_mgr pub; /* "public" fields */
-
-  jmp_buf setjmp_buffer; /* for return to caller */
-};
-
-typedef struct urlvalue_jpeg_error_mgr* urlvalue_jpeg_error_ptr;
-
-METHODDEF(void)
-urlvalue_jpeg_error_exit(j_common_ptr cinfo) {
-  /* cinfo->err really points to a my_error_mgr struct, so coerce pointer */
-  urlvalue_jpeg_error_ptr myerr = (urlvalue_jpeg_error_ptr)cinfo->err;
-
-  /* Always display the message. */
-  /* We could postpone this until after returning, if we chose. */
-  (*cinfo->err->output_message)(cinfo);
-
-  /* Return control to the setjmp point */
-  longjmp(myerr->setjmp_buffer, 1);
-}
-
-#endif
+namespace Press {
 
 UrlValue_Img::UrlValue_Img() {
 }
@@ -64,36 +38,36 @@ std::string UrlValue::getRelativePath() const {
 	return relative_path;
 }
 
-Value *UrlValue::operator+(const Value &v) const {
+Value* UrlValue::operator+(const Value &v) const {
 	(void) v;
 	throw new ValueException("You can not add urls.", *this->getTokens());
 }
 
-Value *UrlValue::operator-(const Value &v) const {
+Value* UrlValue::operator-(const Value &v) const {
 	(void) v;
 	throw new ValueException("You can not substract urls.", *this->getTokens());
 }
 
-Value *UrlValue::operator*(const Value &v) const {
+Value* UrlValue::operator*(const Value &v) const {
 	(void) v;
 	throw new ValueException("You can not multiply urls.", *this->getTokens());
 }
 
-Value *UrlValue::operator/(const Value &v) const {
+Value* UrlValue::operator/(const Value &v) const {
 	(void) v;
 	throw new ValueException("You can not divide urls.", *this->getTokens());
 }
 
 bool UrlValue::operator<(const Value &v) const {
-	const UrlValue *u;
-	const BooleanValue *b;
+	const UrlValue* u;
+	const BooleanValue* b;
 
 	if (v.type == URL) {
-		u = static_cast<const UrlValue *>(&v);
+		u = static_cast<const UrlValue* >(&v);
 		return (path < u->getPath());
 
 	} else if (v.type == BOOLEAN) {
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return b->getValue();
 
 	} else {
@@ -103,16 +77,16 @@ bool UrlValue::operator<(const Value &v) const {
 }
 
 bool UrlValue::operator==(const Value &v) const {
-	const UrlValue *u;
-	const BooleanValue *b;
+	const UrlValue* u;
+	const BooleanValue* b;
 
 	if (v.type == URL) {
-		u = static_cast<const UrlValue *>(&v);
+		u = static_cast<const UrlValue* >(&v);
 		return (path == u->getPath());
 
 	} else if (v.type == BOOLEAN) {
 		// any url is falsy.
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return (false == b->getValue());
 
 	} else {
@@ -355,3 +329,4 @@ Color UrlValue::getImageBackground() const {
 	return img.background;
 }
 
+}

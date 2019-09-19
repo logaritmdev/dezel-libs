@@ -1,5 +1,6 @@
 #include "Selector.h"
 
+namespace Press {
 
 Selector::Selector() {
 }
@@ -156,3 +157,4 @@ std::string Selector::toString() const {
 	return str;
 }
 
+}

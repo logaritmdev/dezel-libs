@@ -1,5 +1,7 @@
 #include "Declaration.h"
 
+namespace Press {
+
 Declaration::Declaration() {
 	property = "";
 }
@@ -44,4 +46,6 @@ void Declaration::process(Ruleset &r, void *context) const {
 
 void Declaration::write(Writer &writer) const {
 	writer.writeDeclaration(property, value);
+}
+
 }

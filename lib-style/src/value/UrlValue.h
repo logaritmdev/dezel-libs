@@ -5,7 +5,10 @@
 #include "Color.h"
 #include "Value.h"
 
+namespace Press {
+
 class UrlValue_Img {
+
 public:
 	unsigned int width;
 	unsigned int height;
@@ -14,6 +17,7 @@ public:
 };
 
 class UrlValue : public Value {
+
 private:
 	std::string path;
 	bool loadImg(UrlValue_Img &img) const;
@@ -25,10 +29,10 @@ public:
 	virtual ~UrlValue();
 	std::string getPath() const;
 	std::string getRelativePath() const;
-	virtual Value *operator+(const Value &v) const;
-	virtual Value *operator-(const Value &v) const;
-	virtual Value *operator*(const Value &v) const;
-	virtual Value *operator/(const Value &v) const;
+	virtual Value* operator+(const Value &v) const;
+	virtual Value* operator-(const Value &v) const;
+	virtual Value* operator*(const Value &v) const;
+	virtual Value* operator/(const Value &v) const;
 	virtual bool operator<(const Value &v) const;
 	virtual bool operator==(const Value &v) const;
 	unsigned int getImageWidth() const;
@@ -36,4 +40,6 @@ public:
 	Color getImageBackground() const;
 };
 
-#endif  // __value_UrlValue_h__
+}
+
+#endif

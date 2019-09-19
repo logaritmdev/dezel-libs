@@ -4,14 +4,10 @@
 #include <list>
 #include "TokenList.h"
 
-/**
- * If the selector contains commas then it is split up into multiple
- * selectors.
- *
- * For example <code>p .class, a:hover</code> is split up into
- * <code>p .class</code> and <code>a:hover</code>.
- */
+namespace Press {
+
 class Selector : public std::list<TokenList> {
+
 protected:
 
 public:
@@ -28,4 +24,6 @@ public:
 	std::string toString() const;
 };
 
-#endif  // __Selector_h__
+}
+
+#endif

@@ -1,5 +1,7 @@
 #include "BooleanValue.h"
 
+namespace Press {
+
 BooleanValue::BooleanValue(bool value) {
 	Token t("true", Token::IDENTIFIER, 0, 0, "generated");
 	tokens.push_back(t);
@@ -25,13 +27,13 @@ void BooleanValue::setValue(bool value) {
 	tokens.front() = value ? "true" : "false";
 }
 
-Value *BooleanValue::operator+(const Value &v) const {
+Value* BooleanValue::operator+(const Value &v) const {
 	Token t;
-	const StringValue *str;
-	StringValue *ret;
+	const StringValue* str;
+	StringValue* ret;
 
 	if (v.type == STRING) {
-		str = static_cast<const StringValue *>(&v);
+		str = static_cast<const StringValue* >(&v);
 		ret = new StringValue(*this, str->getQuotes());
 		ret->append(v);
 		return ret;
@@ -40,27 +42,27 @@ Value *BooleanValue::operator+(const Value &v) const {
 	throw new ValueException("Can't add boolean types.", *this->getTokens());
 }
 
-Value *BooleanValue::operator-(const Value &v) const {
+Value* BooleanValue::operator-(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't substract boolean types.",
 							 *this->getTokens());
 }
 
-Value *BooleanValue::operator*(const Value &v) const {
+Value* BooleanValue::operator*(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't multiply boolean types.", *this->getTokens());
 }
 
-Value *BooleanValue::operator/(const Value &v) const {
+Value* BooleanValue::operator/(const Value &v) const {
 	(void) v;
 	throw new ValueException("Can't divide boolean types.", *this->getTokens());
 }
 
 bool BooleanValue::operator==(const Value &v) const {
-	const BooleanValue *b;
+	const BooleanValue* b;
 
 	if (v.type == BOOLEAN) {
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return getValue() == b->getValue();
 	} else {
 		return false;
@@ -68,12 +70,14 @@ bool BooleanValue::operator==(const Value &v) const {
 }
 
 bool BooleanValue::operator<(const Value &v) const {
-	const BooleanValue *b;
+	const BooleanValue* b;
 
 	if (v.type == BOOLEAN) {
-		b = static_cast<const BooleanValue *>(&v);
+		b = static_cast<const BooleanValue* >(&v);
 		return !getValue() && b->getValue();
 	} else {
 		return !getValue();
 	}
+}
+
 }

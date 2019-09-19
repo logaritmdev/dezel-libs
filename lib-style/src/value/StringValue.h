@@ -7,9 +7,12 @@
 #include "Color.h"
 #include "Value.h"
 
+namespace Press {
+
 class FunctionLibrary;
 
 class StringValue : public Value {
+
 private:
 	std::string strvalue;
 	bool quotes;
@@ -26,13 +29,15 @@ public:
 	void setQuotes(bool quotes);
 	bool getQuotes() const;
 	void append(const Value &v);
-	virtual Value *operator+(const Value &v) const;
-	virtual Value *operator-(const Value &v) const;
-	virtual Value *operator*(const Value &v) const;
-	virtual Value *operator/(const Value &v) const;
+	virtual Value* operator+(const Value &v) const;
+	virtual Value* operator-(const Value &v) const;
+	virtual Value* operator*(const Value &v) const;
+	virtual Value* operator/(const Value &v) const;
 	virtual bool operator==(const Value &v) const;
 	virtual bool operator<(const Value &v) const;
 	static std::string escape(std::string rawstr, std::string extraUnreserved = "");
 };
 
-#endif  // __value_StringValue_h__
+}
+
+#endif

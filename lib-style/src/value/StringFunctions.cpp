@@ -6,6 +6,8 @@
 #include "Color.h"
 #include <regex>
 
+namespace Press {
+
 #ifdef _MSC_VER
 #if _MSC_VER < 1900 
 namespace std
@@ -127,6 +129,9 @@ Value* StringFunctions::color(const vector<const Value*>& arguments) {
   t = Token(s->getString(), Token::HASH, 0, 0, "generated");
   return new Color(t);
 }
+
 Value* StringFunctions::data_uri(const vector<const Value*>& arguments) {
   return new StringValue(*(const StringValue*)arguments[0]);
+}
+
 }

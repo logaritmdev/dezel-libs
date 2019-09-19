@@ -1,6 +1,8 @@
 #include "FunctionLibrary.h"
 
-const FuncInfo *FunctionLibrary::getFunction(const char *functionName) const {
+namespace Press {
+
+const FuncInfo *FunctionLibrary::getFunction(const char* functionName) const {
 	std::map<std::string, FuncInfo *>::const_iterator i = map.find(functionName);
 
 	if (i != map.end())
@@ -11,8 +13,8 @@ const FuncInfo *FunctionLibrary::getFunction(const char *functionName) const {
 
 void FunctionLibrary::push(
 	string name,
-	const char *parameterTypes,
-	Value *(*func)(const vector<const Value *> &arguments)) {
+	const char* parameterTypes,
+	Value* (*func)(const vector<const Value*> &arguments)) {
 	FuncInfo *fi = new FuncInfo();
 	fi->parameterTypes = parameterTypes;
 	fi->func = func;
@@ -20,9 +22,9 @@ void FunctionLibrary::push(
 }
 
 bool FunctionLibrary::checkArguments(
-	const FuncInfo *fi, const vector<const Value *> &arguments) const {
-	const char *types = fi->parameterTypes;
-	vector<const Value *>::const_iterator it = arguments.begin();
+	const FuncInfo *fi, const vector<const Value*> &arguments) const {
+	const char* types = fi->parameterTypes;
+	vector<const Value* >::const_iterator it = arguments.begin();
 	unsigned int i, len = (unsigned int) strlen(types);
 
 	for (i = 0; i < len; i++) {
@@ -58,7 +60,7 @@ bool FunctionLibrary::checkArguments(
 	return true;
 }
 
-const char *FunctionLibrary::functionDefToString(const char *functionName,
+const char* FunctionLibrary::functionDefToString(const char* functionName,
 	const FuncInfo *fi) const {
 	if (fi == NULL)
 		fi = getFunction(functionName);
@@ -66,9 +68,9 @@ const char *FunctionLibrary::functionDefToString(const char *functionName,
 		return "";
 
 	string str(functionName);
-	const char *types = fi->parameterTypes;
+	const char* types = fi->parameterTypes;
 	unsigned int i, len = (unsigned int) strlen(types);
-	char *retstr;
+	char* retstr;
 
 	str.append("(");
 	for (i = 0; i < len; i++) {
@@ -96,4 +98,6 @@ const char *FunctionLibrary::functionDefToString(const char *functionName,
 	std::strcpy(retstr, str.c_str());
 
 	return retstr;
+}
+
 }

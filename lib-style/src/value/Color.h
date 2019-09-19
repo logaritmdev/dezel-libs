@@ -8,6 +8,8 @@
 #include "StringValue.h"
 #include "Value.h"
 
+namespace Press {
+
 using namespace std;
 
 #define RGB_RED 0
@@ -25,6 +27,7 @@ using namespace std;
 class FunctionLibrary;
 
 class Color : public Value {
+
 private:
 	/**
 	 * Used for converting hsl/hsv colors to rgb.
@@ -99,7 +102,7 @@ private:
 
 	virtual const TokenList *getTokens() const;
 
-	bool parseHash(const char *hash);
+	bool parseHash(const char* hash);
 
 public:
 	Token token;
@@ -116,13 +119,13 @@ public:
 	};
 
 	Color(const Token &token);
-	Color(const Token &name, const char *hash);
+	Color(const Token &name, const char* hash);
 	Color(unsigned int red = 0, unsigned int green = 0, unsigned int blue = 0, float alpha = 1.f);
 	Color(float hue, float saturation, float lightness, float alpha = 1.f);
 	Color(bool hsv, float hue, float saturation, float value, float alpha = 1.f);
 	Color(const Color &color);
 
-	static std::map<string, const char *> ColorNames;
+	static std::map<string, const char* > ColorNames;
 
 	/**
 	 * Looks in the ColorNames database for the given name and creates a color
@@ -133,10 +136,10 @@ public:
 	static Color *fromName(const Token &name);
 
 	virtual ~Color();
-	virtual Value *operator+(const Value &v) const;
-	virtual Value *operator-(const Value &v) const;
-	virtual Value *operator*(const Value &v) const;
-	virtual Value *operator/(const Value &v) const;
+	virtual Value* operator+(const Value &v) const;
+	virtual Value* operator-(const Value &v) const;
+	virtual Value* operator*(const Value &v) const;
+	virtual Value* operator/(const Value &v) const;
 	virtual bool operator==(const Value &v) const;
 	virtual bool operator<(const Value &v) const;
 
@@ -197,4 +200,6 @@ public:
 
 };
 
-#endif  // __value_Color_h__
+}
+
+#endif

@@ -8,11 +8,14 @@
 #include "Tokenizer.h"
 #include "SelectorParser.h"
 
+namespace Press {
+
 class Declaration;
 
 using namespace std;
 
 class Parser {
+
 protected:
 	Tokenizer *tokenizer;
 	SelectorParser selectorParser;
@@ -37,4 +40,6 @@ public:
 	virtual void parseStylesheet(Stylesheet &stylesheet);
 };
 
-#endif  // __css_CssParser_h__
+}
+
+#endif

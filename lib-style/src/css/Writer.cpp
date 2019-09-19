@@ -1,6 +1,8 @@
 #include "Writer.h"
 #include "Selector.h"
 
+namespace Press {
+
 Writer::Writer() {
 	out = NULL;
 	column = 0;
@@ -22,7 +24,7 @@ void Writer::newline() {
 
 }
 
-void Writer::writeStr(const char *str, size_t len) {
+void Writer::writeStr(const char* str, size_t len) {
 
 }
 
@@ -74,6 +76,8 @@ void Writer::writeMediaQueryEnd() {
 
 }
 
-void Writer::writeSourceMapUrl(const char *sourcemap_url) {
+void Writer::writeSourceMapUrl(const char* sourcemap_url) {
+
+}
 
 }

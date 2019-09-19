@@ -5,19 +5,22 @@
 #include "Value.h"
 #include "ValueException.h"
 
+namespace Press {
+
 /**
  * A dimension unit: em,ex,px,ch,in,cm,mm,pt,pc
  */
 class UnitValue : public Value {
+
 public:
 	enum UnitGroup { NO_GROUP, LENGTH, TIME, ANGLE };
 	UnitValue(Token &token);
 	virtual ~UnitValue();
-	const char *getUnit() const;
-	virtual Value *operator+(const Value &v) const;
-	virtual Value *operator-(const Value &v) const;
-	virtual Value *operator*(const Value &v) const;
-	virtual Value *operator/(const Value &v) const;
+	const char* getUnit() const;
+	virtual Value* operator+(const Value &v) const;
+	virtual Value* operator-(const Value &v) const;
+	virtual Value* operator*(const Value &v) const;
+	virtual Value* operator/(const Value &v) const;
 	virtual bool operator<(const Value &v) const;
 	virtual bool operator==(const Value &v) const;
 	static UnitGroup getUnitGroup(const std::string &unit);
@@ -29,4 +32,6 @@ public:
 	static double radToAngle(double rad, const std::string &unit);
 };
 
-#endif  // __value_UnitValue_h__
+}
+
+#endif  

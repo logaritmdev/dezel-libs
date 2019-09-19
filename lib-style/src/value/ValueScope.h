@@ -6,9 +6,14 @@
 #include <string>
 #include "TokenList.h"
 
+namespace Press {
+
 class ValueScope {
+
 public:
 	virtual const TokenList *getVariable(const std::string &key) const = 0;
 };
 
-#endif  // __tree_ValueScope_h__
+}
+
+#endif

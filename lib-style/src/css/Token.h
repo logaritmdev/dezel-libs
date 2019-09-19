@@ -3,11 +3,14 @@
 
 #include <string>
 
+namespace Press {
+
 class Token : public std::string {
+
 protected:
 public:
 	unsigned int line, column;
-	const char *source;
+	const char* source;
 
 	enum Type {
 		IDENTIFIER,
@@ -46,8 +49,8 @@ public:
 		BUILTIN_IMPORTANT;
 
 	Token();
-	Token(unsigned int line, unsigned int column, const char *source);
-	Token(const std::string &s, Type t, unsigned int line, unsigned int column, 	const char *source);
+	Token(unsigned int line, unsigned int column, const char* source);
+	Token(const std::string &s, Type t, unsigned int line, unsigned int column, 	const char* source);
 	void setLocation(const Token &ref);
 	void clear();
 	bool stringHasQuotes() const;
@@ -93,4 +96,6 @@ public:
 	}
 };
 
-#endif  // __Token_h__
+}
+
+#endif

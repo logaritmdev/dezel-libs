@@ -5,7 +5,10 @@
 #include "Stylesheet.h"
 #include "StylesheetStatement.h"
 
+namespace Press {
+
 class MediaQuery : public Stylesheet, public StylesheetStatement {
+
 private:
 	TokenList selector;
 	static const Token BUILTIN_AND;
@@ -19,4 +22,6 @@ public:
 	virtual void write(Writer &writer) const;
 };
 
-#endif  // __MediaQuery_h__
+}
+
+#endif

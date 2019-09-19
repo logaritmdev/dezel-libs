@@ -3,6 +3,8 @@
 
 #include "Writable.h"
 
+namespace Press {
+
 class Ruleset;
 
 class RulesetStatement : public Writable {
@@ -16,6 +18,8 @@ public:
 	virtual void process(Ruleset &r, void *context) const = 0;
 };
 
+}
+
 #include "Ruleset.h"
 
-#endif  // __RulesetStatement_h__
+#endif 

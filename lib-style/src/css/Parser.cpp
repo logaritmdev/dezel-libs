@@ -4,6 +4,8 @@
 #include "AtRule.h"
 #include "Ruleset.h"
 
+namespace Press {
+
 Parser::Parser(Tokenizer &tokenizer) {
 	this->tokenizer = &tokenizer;
 }
@@ -451,4 +453,6 @@ bool Parser::parseUnused(TokenList &tokens) {
 	}
 
 	return true;
+}
+
 }

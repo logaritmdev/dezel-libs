@@ -4,6 +4,7 @@
 #include "NumberValue.h"
 #include "Color.h"
 
+namespace Press {
 
 void ColorFunctions::loadFunctions(FunctionLibrary &lib) {
 	lib.push("rgb", "NNN", &ColorFunctions::rgb);
@@ -49,26 +50,26 @@ void ColorFunctions::loadFunctions(FunctionLibrary &lib) {
 	lib.push("negation", "CC", &ColorFunctions::negation);
 }
 
-Value *ColorFunctions::rgb(const vector<const Value *> &arguments) {
+Value* ColorFunctions::rgb(const vector<const Value*> &arguments) {
 	return new Color(
-		(unsigned int) ((const NumberValue *) arguments[0])->getValue(),
-		(unsigned int) ((const NumberValue *) arguments[1])->getValue(),
-		(unsigned int) ((const NumberValue *) arguments[2])->getValue());
+		(unsigned int) ((const NumberValue* ) arguments[0])->getValue(),
+		(unsigned int) ((const NumberValue* ) arguments[1])->getValue(),
+		(unsigned int) ((const NumberValue* ) arguments[2])->getValue());
 }
 
-Value *ColorFunctions::rgba(const vector<const Value *> &arguments) {
+Value* ColorFunctions::rgba(const vector<const Value*> &arguments) {
 	if (arguments[3]->type == Value::NUMBER) {
 		return new Color(
-			(unsigned int) ((const NumberValue *) arguments[0])->getValue(),
-			(unsigned int) ((const NumberValue *) arguments[1])->getValue(),
-			(unsigned int) ((const NumberValue *) arguments[2])->getValue(),
-			((const NumberValue *) arguments[3])->getValue());
+			(unsigned int) ((const NumberValue* ) arguments[0])->getValue(),
+			(unsigned int) ((const NumberValue* ) arguments[1])->getValue(),
+			(unsigned int) ((const NumberValue* ) arguments[2])->getValue(),
+			((const NumberValue* ) arguments[3])->getValue());
 	} else if (arguments[3]->type == Value::PERCENTAGE) {
 		return new Color(
-			(unsigned int) ((const NumberValue *) arguments[0])->getValue(),
-			(unsigned int) ((const NumberValue *) arguments[1])->getValue(),
-			(unsigned int) ((const NumberValue *) arguments[2])->getValue(),
-			((const NumberValue *) arguments[3])->getValue() * .01);
+			(unsigned int) ((const NumberValue* ) arguments[0])->getValue(),
+			(unsigned int) ((const NumberValue* ) arguments[1])->getValue(),
+			(unsigned int) ((const NumberValue* ) arguments[2])->getValue(),
+			((const NumberValue* ) arguments[3])->getValue() * .01);
 	} else {
 		throw new ValueException(
 			"Argument 3 needs to be a number "
@@ -77,107 +78,107 @@ Value *ColorFunctions::rgba(const vector<const Value *> &arguments) {
 	}
 }
 
-Value *ColorFunctions::lighten(const vector<const Value *> &arguments) {
+Value* ColorFunctions::lighten(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float value = ((const NumberValue *) arguments[1])->getValue();
+	float value = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->lighten(value * .01);
 	return c;
 }
 
-Value *ColorFunctions::darken(const vector<const Value *> &arguments) {
+Value* ColorFunctions::darken(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float value = ((const NumberValue *) arguments[1])->getValue();
+	float value = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->darken(value * .01);
 	return c;
 }
 
-Value *ColorFunctions::saturate(const vector<const Value *> &arguments) {
+Value* ColorFunctions::saturate(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float value = ((const NumberValue *) arguments[1])->getValue();
+	float value = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->saturate(value * .01);
 	return c;
 }
 
-Value *ColorFunctions::desaturate(const vector<const Value *> &arguments) {
+Value* ColorFunctions::desaturate(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float value = ((const NumberValue *) arguments[1])->getValue();
+	float value = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->desaturate(value * .01);
 	return c;
 }
 
-Value *ColorFunctions::fade(const vector<const Value *> &arguments) {
+Value* ColorFunctions::fade(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float value = ((const NumberValue *) arguments[1])->getValue();
+	float value = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->setAlpha(value * .01);
 	return c;
 }
 
-Value *ColorFunctions::fadein(const vector<const Value *> &arguments) {
+Value* ColorFunctions::fadein(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float value = ((const NumberValue *) arguments[1])->getValue();
+	float value = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->setAlpha(c->getAlpha() + (value * .01));
 	return c;
 }
 
-Value *ColorFunctions::fadeout(const vector<const Value *> &arguments) {
+Value* ColorFunctions::fadeout(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float value = ((const NumberValue *) arguments[1])->getValue();
+	float value = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->setAlpha(c->getAlpha() - (value * .01));
 	return c;
 }
 
-Value *ColorFunctions::spin(const vector<const Value *> &arguments) {
+Value* ColorFunctions::spin(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
-	float degrees = ((const NumberValue *) arguments[1])->getValue();
+	float degrees = ((const NumberValue* ) arguments[1])->getValue();
 
 	c->spin(degrees);
 	return c;
 }
 
-Value *ColorFunctions::hsl(const vector<const Value *> &arguments) {
-	return new Color((float) ((const NumberValue *) arguments[0])->getValue(),
-					 (float) (((const NumberValue *) arguments[1])->getValue() * .01),
-					 (float) (((const NumberValue *) arguments[2])->getValue() * .01));
+Value* ColorFunctions::hsl(const vector<const Value*> &arguments) {
+	return new Color((float) ((const NumberValue* ) arguments[0])->getValue(),
+					 (float) (((const NumberValue* ) arguments[1])->getValue() * .01),
+					 (float) (((const NumberValue* ) arguments[2])->getValue() * .01));
 }
 
-Value *ColorFunctions::hsla(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hsla(const vector<const Value*> &arguments) {
 	float alpha;
 	if (arguments[3]->type == Value::NUMBER) {
-		alpha = ((const NumberValue *) arguments[3])->getValue();
+		alpha = ((const NumberValue* ) arguments[3])->getValue();
 	} else if (arguments[3]->type == Value::PERCENTAGE) {
-		alpha = ((const NumberValue *) arguments[3])->getValue() * .01;
+		alpha = ((const NumberValue* ) arguments[3])->getValue() * .01;
 	} else {
 		throw new ValueException(
 			"Argument 3 needs to be a number "
 				"or percentage.",
 			*arguments[3]->getTokens());
 	}
-	return new Color((float) ((const NumberValue *) arguments[0])->getValue(),
-					 (float) (((const NumberValue *) arguments[1])->getValue() * .01),
-					 (float) (((const NumberValue *) arguments[2])->getValue() * .01),
+	return new Color((float) ((const NumberValue* ) arguments[0])->getValue(),
+					 (float) (((const NumberValue* ) arguments[1])->getValue() * .01),
+					 (float) (((const NumberValue* ) arguments[2])->getValue() * .01),
 					 alpha);
 }
 
-Value *ColorFunctions::hsv(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hsv(const vector<const Value*> &arguments) {
 	return new Color(true,
-					 (float) ((const NumberValue *) arguments[0])->getValue(),
-					 (float) (((const NumberValue *) arguments[1])->getValue() * .01),
-					 (float) (((const NumberValue *) arguments[2])->getValue() * .01));
+					 (float) ((const NumberValue* ) arguments[0])->getValue(),
+					 (float) (((const NumberValue* ) arguments[1])->getValue() * .01),
+					 (float) (((const NumberValue* ) arguments[2])->getValue() * .01));
 }
 
-Value *ColorFunctions::hsva(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hsva(const vector<const Value*> &arguments) {
 	float alpha;
 	if (arguments[3]->type == Value::NUMBER) {
-		alpha = ((const NumberValue *) arguments[3])->getValue();
+		alpha = ((const NumberValue* ) arguments[3])->getValue();
 	} else if (arguments[3]->type == Value::PERCENTAGE) {
-		alpha = ((const NumberValue *) arguments[3])->getValue() * .01;
+		alpha = ((const NumberValue* ) arguments[3])->getValue() * .01;
 	} else {
 		throw new ValueException(
 			"Argument 3 needs to be a number "
@@ -185,55 +186,55 @@ Value *ColorFunctions::hsva(const vector<const Value *> &arguments) {
 			*arguments[3]->getTokens());
 	}
 	return new Color(true,
-					 (float) ((const NumberValue *) arguments[0])->getValue(),
-					 (float) (((const NumberValue *) arguments[1])->getValue() * .01),
-					 (float) (((const NumberValue *) arguments[2])->getValue() * .01),
+					 (float) ((const NumberValue* ) arguments[0])->getValue(),
+					 (float) (((const NumberValue* ) arguments[1])->getValue() * .01),
+					 (float) (((const NumberValue* ) arguments[2])->getValue() * .01),
 					 alpha);
 }
 
-Value *ColorFunctions::hue(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hue(const vector<const Value*> &arguments) {
 	float hsl[3];
 	((const Color *) arguments[0])->getHSL(hsl);
 
 	return new NumberValue(hsl[HSL_HUE]);
 }
 
-Value *ColorFunctions::saturation(const vector<const Value *> &arguments) {
+Value* ColorFunctions::saturation(const vector<const Value*> &arguments) {
 	float hsl[3];
 	((const Color *) arguments[0])->getHSL(hsl);
 
 	return new NumberValue(hsl[HSL_SATURATION] * 100, Token::PERCENTAGE, NULL);
 }
 
-Value *ColorFunctions::lightness(const vector<const Value *> &arguments) {
+Value* ColorFunctions::lightness(const vector<const Value*> &arguments) {
 	float hsl[3];
 	((const Color *) arguments[0])->getHSL(hsl);
 
 	return new NumberValue(hsl[HSL_LIGHTNESS] * 100, Token::PERCENTAGE, NULL);
 }
 
-Value *ColorFunctions::hsvhue(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hsvhue(const vector<const Value*> &arguments) {
 	float hsv[3];
 	((const Color *) arguments[0])->getHSV(hsv);
 
 	return new NumberValue(hsv[HSV_HUE]);
 }
 
-Value *ColorFunctions::hsvsaturation(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hsvsaturation(const vector<const Value*> &arguments) {
 	float hsv[3];
 	((const Color *) arguments[0])->getHSV(hsv);
 
 	return new NumberValue(hsv[HSV_SATURATION] * 100, Token::PERCENTAGE, NULL);
 }
 
-Value *ColorFunctions::hsvvalue(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hsvvalue(const vector<const Value*> &arguments) {
 	float hsv[3];
 	((const Color *) arguments[0])->getHSV(hsv);
 
 	return new NumberValue(hsv[HSV_VALUE] * 100, Token::PERCENTAGE, NULL);
 }
 
-Value *ColorFunctions::argb(const vector<const Value *> &arguments) {
+Value* ColorFunctions::argb(const vector<const Value*> &arguments) {
 	const Color *c = (const Color *) arguments[0];
 	ostringstream stm;
 	unsigned int color[4];
@@ -265,82 +266,82 @@ Value *ColorFunctions::argb(const vector<const Value *> &arguments) {
 	return new StringValue(t, false);
 }
 
-Value *ColorFunctions::red(const vector<const Value *> &arguments) {
+Value* ColorFunctions::red(const vector<const Value*> &arguments) {
 	unsigned int rgb[3];
 	((const Color *) arguments[0])->getRGB(rgb);
 
 	return new NumberValue(rgb[RGB_RED]);
 }
 
-Value *ColorFunctions::blue(const vector<const Value *> &arguments) {
+Value* ColorFunctions::blue(const vector<const Value*> &arguments) {
 	unsigned int rgb[3];
 	((const Color *) arguments[0])->getRGB(rgb);
 
 	return new NumberValue(rgb[RGB_BLUE]);
 }
 
-Value *ColorFunctions::green(const vector<const Value *> &arguments) {
+Value* ColorFunctions::green(const vector<const Value*> &arguments) {
 	unsigned int rgb[3];
 	((const Color *) arguments[0])->getRGB(rgb);
 
 	return new NumberValue(rgb[RGB_GREEN]);
 }
 
-Value *ColorFunctions::alpha(const vector<const Value *> &arguments) {
+Value* ColorFunctions::alpha(const vector<const Value*> &arguments) {
 	const Color *c = (const Color *) arguments[0];
 
 	return new NumberValue(c->getAlpha());
 }
 
-Value *ColorFunctions::luma(const vector<const Value *> &arguments) {
+Value* ColorFunctions::luma(const vector<const Value*> &arguments) {
 	const Color *c = (const Color *) arguments[0];
 
 	return new NumberValue(c->getLuma() * 100, Token::PERCENTAGE, NULL);
 }
 
-Value *ColorFunctions::luminance(const vector<const Value *> &arguments) {
+Value* ColorFunctions::luminance(const vector<const Value*> &arguments) {
 	const Color *c = (const Color *) arguments[0];
 
 	return new NumberValue(c->getLuminance() * 100, Token::PERCENTAGE, NULL);
 }
 
-Value *ColorFunctions::mix(const vector<const Value *> &arguments) {
+Value* ColorFunctions::mix(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	float weight = .5;
 	if (arguments.size() > 2)
-		weight = (float) (((const NumberValue *) arguments[2])->getValue() * .01);
+		weight = (float) (((const NumberValue* ) arguments[2])->getValue() * .01);
 
 	c->mix(*(const Color *) arguments[1], weight);
 	return c;
 }
 
-Value *ColorFunctions::tint(const vector<const Value *> &arguments) {
+Value* ColorFunctions::tint(const vector<const Value*> &arguments) {
 	Color *c = new Color((unsigned int) 255, (unsigned int) 255, (unsigned int) 255);
 	float weight = .5;
 	if (arguments.size() > 1)
-		weight = (float) (((const NumberValue *) arguments[1])->getValue() * .01);
+		weight = (float) (((const NumberValue* ) arguments[1])->getValue() * .01);
 
 	c->mix(*(const Color *) arguments[0], weight);
 	return c;
 }
 
-Value *ColorFunctions::shade(const vector<const Value *> &arguments) {
+Value* ColorFunctions::shade(const vector<const Value*> &arguments) {
 	Color *c = new Color((unsigned int) 0, (unsigned int) 0, (unsigned int) 0);
 	float weight = .5;
 	if (arguments.size() > 1)
-		weight = (float) (((const NumberValue *) arguments[1])->getValue() * .01);
+		weight = (float) (((const NumberValue* ) arguments[1])->getValue() * .01);
 
 	c->mix(*(const Color *) arguments[0], weight);
 	return c;
 }
 
-Value *ColorFunctions::greyscale(const vector<const Value *> &arguments) {
+Value* ColorFunctions::greyscale(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->desaturate(1);
 	return c;
 }
 
-Value *ColorFunctions::contrast(const vector<const Value *> &arguments) {
+Value* ColorFunctions::contrast(const vector<const Value*> &arguments) {
 	const Color *compare = (const Color *) arguments[0];
 	const Color *dark, *light;
 	double threshold = 0.43;
@@ -359,7 +360,7 @@ Value *ColorFunctions::contrast(const vector<const Value *> &arguments) {
 		light = &white;
 
 	if (arguments.size() > 3)
-		threshold = ((const NumberValue *) arguments[3])->getValue() * .01;
+		threshold = ((const NumberValue* ) arguments[3])->getValue() * .01;
 
 	c_luma = compare->getLuma();
 	d_luma = dark->getLuma();
@@ -378,56 +379,58 @@ Value *ColorFunctions::contrast(const vector<const Value *> &arguments) {
 	}
 }
 
-Value *ColorFunctions::multiply(const vector<const Value *> &arguments) {
+Value* ColorFunctions::multiply(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_MULTIPLY);
 	return c;
 }
 
-Value *ColorFunctions::screen(const vector<const Value *> &arguments) {
+Value* ColorFunctions::screen(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_SCREEN);
 	return c;
 }
 
-Value *ColorFunctions::overlay(const vector<const Value *> &arguments) {
+Value* ColorFunctions::overlay(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_OVERLAY);
 	return c;
 }
 
-Value *ColorFunctions::softlight(const vector<const Value *> &arguments) {
+Value* ColorFunctions::softlight(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_SOFTLIGHT);
 	return c;
 }
 
-Value *ColorFunctions::hardlight(const vector<const Value *> &arguments) {
+Value* ColorFunctions::hardlight(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_HARDLIGHT);
 	return c;
 }
 
-Value *ColorFunctions::difference(const vector<const Value *> &arguments) {
+Value* ColorFunctions::difference(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_DIFFERENCE);
 	return c;
 }
 
-Value *ColorFunctions::exclusion(const vector<const Value *> &arguments) {
+Value* ColorFunctions::exclusion(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_EXCLUSION);
 	return c;
 }
 
-Value *ColorFunctions::average(const vector<const Value *> &arguments) {
+Value* ColorFunctions::average(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_AVERAGE);
 	return c;
 }
 
-Value *ColorFunctions::negation(const vector<const Value *> &arguments) {
+Value* ColorFunctions::negation(const vector<const Value*> &arguments) {
 	Color *c = new Color(*(const Color *) arguments[0]);
 	c->blend(*(const Color *) arguments[1], Color::BT_NEGATION);
 	return c;
+}
+
 }

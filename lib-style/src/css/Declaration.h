@@ -4,11 +4,13 @@
 #include "Writer.h"
 #include "Ruleset.h"
 #include "RulesetStatement.h"
-
 #include "Token.h"
 #include "TokenList.h"
 
+namespace Press {
+
 class Declaration : public RulesetStatement {
+
 protected:
 	Token property;
 	TokenList value;
@@ -27,4 +29,6 @@ public:
 	virtual void write(Writer &writer) const;
 };
 
-#endif  // __Declaration_h__
+}
+
+#endif

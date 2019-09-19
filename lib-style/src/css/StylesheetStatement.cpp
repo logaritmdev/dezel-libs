@@ -1,5 +1,7 @@
 #include "StylesheetStatement.h"
 
+namespace Press {
+
 void StylesheetStatement::setStylesheet(Stylesheet *s) {
 	stylesheet = s;
 }
@@ -14,4 +16,6 @@ void StylesheetStatement::setReference(bool ref) {
 
 bool StylesheetStatement::isReference() const {
 	return reference;
+}
+
 }

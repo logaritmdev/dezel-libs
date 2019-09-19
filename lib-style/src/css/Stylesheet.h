@@ -5,11 +5,11 @@
 
 #include "Writable.h"
 #include "Selector.h"
-
 #include "Token.h"
 #include "TokenList.h"
-
 #include "Writer.h"
+
+namespace Press {
 
 class AtRule;
 class Ruleset;
@@ -18,6 +18,7 @@ class Comment;
 class MediaQuery;
 
 class Stylesheet : public Writable {
+
 private:
 	std::list<AtRule *> atrules;
 	std::list<Ruleset *> rulesets;
@@ -48,4 +49,6 @@ public:
 	virtual void write(Writer &writer) const;
 };
 
-#endif  // __Stylesheet_h__
+}
+
+#endif 

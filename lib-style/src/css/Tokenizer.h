@@ -6,23 +6,25 @@
 #include "Token.h"
 #include "ParseException.h"
 
+namespace Press {
+
 using namespace std;
 
 class Tokenizer {
 public:
-	Tokenizer(istream &in, const char *source);
+	Tokenizer(istream &in, const char* source);
 	virtual ~Tokenizer();
 	Token::Type readNextToken();
 	Token &getToken();
 	Token::Type getTokenType();
-	const char *getSource();
+	const char* getSource();
 
 protected:
 	istream *in;
 	Token currentToken;
 	char lastRead;
 	unsigned int line, column;
-	const char *source;
+	const char* source;
 	void readChar();
 	bool readIdent();
 	bool readName();
@@ -45,4 +47,6 @@ protected:
 	bool lastReadIsHex();
 };
 
-#endif  // __css_CssTokenizer_h__
+}
+
+#endif 

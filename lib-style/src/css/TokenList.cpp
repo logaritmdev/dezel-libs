@@ -1,5 +1,7 @@
 #include "TokenList.h"
 
+namespace Press {
+
 TokenList::~TokenList() {
 }
 
@@ -79,4 +81,6 @@ TokenList::const_iterator TokenList::find(const TokenList &search,
 			offset++;
 	}
 	return begin();
+}
+
 }

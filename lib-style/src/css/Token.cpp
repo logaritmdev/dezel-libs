@@ -1,20 +1,20 @@
 #include "Token.h"
 
+namespace Press {
+
 char Token::BUILTIN_SOURCE[8] = "builtin";
 
 const Token Token::BUILTIN_SPACE(" ", Token::WHITESPACE, 0, 0, BUILTIN_SOURCE);
 const Token Token::BUILTIN_COMMA(",", Token::OTHER, 0, 0, BUILTIN_SOURCE);
-const Token Token::BUILTIN_PAREN_OPEN(
-	"(", Token::PAREN_OPEN, 0, 0, BUILTIN_SOURCE);
-const Token Token::BUILTIN_PAREN_CLOSED(
-	")", Token::PAREN_CLOSED, 0, 0, BUILTIN_SOURCE);
+const Token Token::BUILTIN_PAREN_OPEN("(", Token::PAREN_OPEN, 0, 0, BUILTIN_SOURCE);
+const Token Token::BUILTIN_PAREN_CLOSED(")", Token::PAREN_CLOSED, 0, 0, BUILTIN_SOURCE);
 
 const Token Token::BUILTIN_IMPORTANT("!important", Token::IDENTIFIER, 0, 0, BUILTIN_SOURCE);
 
 Token::Token() : line(0), column(0), source(BUILTIN_SOURCE), type(OTHER) {
 }
 
-Token::Token(unsigned int line, unsigned int column, const char *source)
+Token::Token(unsigned int line, unsigned int column, const char* source)
 	: line(line), column(column), source(source), type(OTHER) {
 }
 
@@ -22,7 +22,7 @@ Token::Token(const std::string &s,
 	Type t,
 	unsigned int line,
 	unsigned int column,
-	const char *source)
+	const char* source)
 	: line(line), column(column), source(source) {
 	type = t;
 	append(s);
@@ -72,4 +72,6 @@ std::string Token::getUrlString() const {
 		return ret;
 	} else
 		return "";
+}
+
 }
